@@ -1,5 +1,5 @@
 <?php
-	require("php/dbconnect.php");
+	require("dbconnect.php");
 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
@@ -8,17 +8,18 @@
 		header("../index.php");
 	}
 	else{
-		$check_db = mysql_query($link, "SELECT * FROM users_table WHERE username = $username AND password = $password");
-
-		if(mysqli_num_rows($check_db)!=0){
+		$query = "SELECT * FROM users_table WHERE username = '$username' AND password = '$password'";
+		$check_db = mysqli_query($connect, $query);
+		$count = mysqli_num_rows($check_db);
+		if($count!=0){
 			session_start();
 			$_SESSION['username'] = $username;
 			$_SESSION['password'] = $password;
 
-			header("../home.php");
+			header("Location: ../home.php");
 		}
 		else{
-			header("../index.php");
+			header("Location: ../index.php");
 		}
 	}
 
