@@ -99,27 +99,27 @@ CREATE TABLE `victims_table` (
 -- AUTO_INCREMENT for table `answers_table`
 --
 ALTER TABLE `answers_table`
-  MODIFY `answer_id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `answer_id` int(15) NOT NULL AUTO_INCREMENT PRIMARY_KEY;
 --
 -- AUTO_INCREMENT for table `login_logs`
 --
 ALTER TABLE `login_logs`
-  MODIFY `user_id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(15) NOT NULL AUTO_INCREMENT PRIMARY_KEY;
 --
 -- AUTO_INCREMENT for table `questions_table`
 --
 ALTER TABLE `questions_table`
-  MODIFY `question_id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `question_id` int(15) NOT NULL AUTO_INCREMENT PRIMARY_KEY;
 --
 -- AUTO_INCREMENT for table `users_table`
 --
 ALTER TABLE `users_table`
-  MODIFY `user_id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(15) NOT NULL AUTO_INCREMENT PRIMARY_KEY;
 --
 -- AUTO_INCREMENT for table `victims_table`
 --
 ALTER TABLE `victims_table`
-  MODIFY `victim_id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `victim_id` int(15) NOT NULL AUTO_INCREMENT PRIMARY_KEY;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

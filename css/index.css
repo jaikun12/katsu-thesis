@@ -46,3 +46,13 @@ h4{
 	color:white;
 }
 
+.hollow-btn{
+	font-size:3vh;
+	padding:20px;
+	border:none;
+	margin:15px;
+	min-width:70vw;
+	background-color:white;
+	color:rgb(200,200,200);
+}
+
