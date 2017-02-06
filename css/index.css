@@ -1,0 +1,48 @@
+*{
+	box-sizing:border-box;
+	margin:0;
+	padding:0;
+	font-family:'Open Sans';
+}
+
+#welcome-div{
+	height:100vh;
+	width:100vw;
+	display:table-cell;
+	vertical-align:middle;
+	padding:10%;
+}
+
+#welcome-div form{
+	font-size:3vh;
+}
+
+#welcome-div input{
+	font-size:2.6vh;
+	height:4vh;
+	width:70vw;
+	/*background:red;*/
+	margin:15px;
+	border:solid #458CE3 1px;
+	padding:10px;
+}
+
+h1{
+	font-size:5.3vh;
+}
+
+h4{
+	font-size:2.3vh;
+
+}
+
+.primary-btn{
+	font-size:3vh;
+	padding:20px;
+	border:none;
+	margin:15px;
+	min-width:70vw;
+	background-color:#459DE3;
+	color:white;
+}
+
