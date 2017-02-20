@@ -27,14 +27,19 @@
 				<input name="username" type="text" class="form-control" id="" placeholder="Input username">
 
 				<label for="">Password</label>
-				<input name="password" type="text" class="form-control" id="" placeholder="Input password">
+				<input name="password" type="password" class="form-control" id="" placeholder="Input password">
 
 				<div class="radio">
-					<label>Admin
+				  	<label>
+					    <input type="radio" name="isadmin" id="" value="1" checked>
+					    Admin
+				  	</label>
+				</div>
+
+				<div class="radio">
+					<label>
 						<input type="radio" name="isadmin" id="" value="0">
-					</label>
-					<label>User
-						<input type="radio" name="isadmin" id="" value="1">
+						User
 					</label>
 				</div>
 				
