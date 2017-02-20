@@ -12,14 +12,16 @@
 	<body>
 		<div id="welcome-div">
 			<center>
-			
 			<img src="images/katsu.gif">
 			<h1>Welcome to Katsu</h1>
 			<h4>Katsu is a chatbot used to obtain responses from suspected child pronography victims. To begin, create a child profile and start a session with katsu.</h4>
-			<a href="katsu_start.php" class="link">Start a session</a><br><br><br>
-			<a href="create_profile.php" class="primary-btn">Create child profile</a>
+			<form action="php/user-authentication.php" method="POST">
+				<input type="text" name="profile_id" placeholder="Child Profile ID">
+				<input type="password" name="password" placeholder="Child Session Password">
+				<button type="submit" class="primary-btn">Start Session</button>
+				<a href="home.php" class="link">Cancel</a>
+			</form>
 			</center>
 		</div>
-		
 	</body>
 </html>
