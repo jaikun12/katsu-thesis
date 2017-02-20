@@ -16,16 +16,18 @@
 
 	</head>
 	<body>
-		<div class="container">
-			<nav class="chat-nav">
+		<nav class="chat-nav">
 
 			</nav>
+		<div class="container">
+			
 			<center>
 			<img id="katsu" src="images/katsu.gif">
 			<h2><?php echo $question;?></h2>
 			<form action="php/submit_response.php" method="POST">
 			<button type="submit" name="answer" value="yes">Yes</button>
 			<button type="submit" name="answer" value="no">No</button>
+			<input type="text" name="question_no" value=<?php echo "'$question_no'"; ?> style="display:none;">
 			</form>
 			</center>
 		</div>
