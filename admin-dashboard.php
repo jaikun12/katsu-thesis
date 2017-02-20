@@ -1,0 +1,222 @@
+<?php
+
+	require_once("php/dbconnect.php");
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Admin Dashboard</title>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+
+
+	<div class="container-fluid">
+
+		<div class="container" id="add-user-content">
+		<form action="php/insert_user.php" method="POST" role="form">
+			<legend>Add a user or an admin</legend>
+		
+			<div class="form-group">
+
+				<label for="">Username</label>
+				<input name="username" type="text" class="form-control" id="" placeholder="Input username">
+
+				<label for="">Password</label>
+				<input name="password" type="password" class="form-control" id="" placeholder="Input password">
+
+				<div class="radio">
+				  	<label>
+					    <input type="radio" name="isadmin" id="" value="1" checked>
+					    Admin
+				  	</label>
+				</div>
+
+				<div class="radio">
+					<label>
+						<input type="radio" name="isadmin" id="" value="0">
+						User
+					</label>
+				</div>
+				
+				<label for="">First Name</label>
+				<input name="firstname" type="text" class="form-control" id="" placeholder="Input username">
+
+				<label for="">Middle Name</label>
+				<input name="middlename" type="text" class="form-control" id="" placeholder="Input username">
+
+				<label for="">Last Name</label>
+				<input name="lastname" type="text" class="form-control" id="" placeholder="Input username">
+
+				<label for="">Contact Number</label>
+				<input name="contact_num" type="text" class="form-control" id="" placeholder="Input username">
+
+				<label for="">E-mail</label>
+				<input name="email" type="text" class="form-control" id="" placeholder="Input username">
+
+			</div>
+			
+			<button type="submit" class="btn btn-primary">Add User</button>
+		</form>
+		</div>
+
+	</div>
+
+	<div class="container" id="users-table">
+		<h3>USERS TABLE OUTPUT</h3>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Username</th>
+					<th>Admin?</th>
+					<th>Name</th>
+					<th>Contact #</th>
+					<th>E-mail</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+					$query = mysqli_query($connection, "SELECT * FROM users_table;");
+
+					while($r = mysqli_fetch_array($query)){
+						$username = $r['username'];
+						$is_admin = $r['is_admin'];
+						$firstname = $r['firstname'];
+						$middlename = $r['middlename'];
+						$lastname = $r['lastname'];
+						$name = $lastname . ", " . $firstname . " ". $middlename;
+						$contact_num = $r['contact_num'];
+						$email = $r['email'];
+
+
+						echo "
+						<tr>
+							<td>" . $username . "</td>
+							<td>" . $is_admin . "</td>
+							<td>" . $name . "</td>
+							<td>" . $contact_num . "</td>
+							<td>" . $email . "</td>
+						</tr>
+						";
+					}
+
+				?>
+				<tr>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="container" id="add-questions">
+		<form action="php/create_question.php" method="POST" role="form">
+			<legend>Add a question</legend>
+		
+			<div class="form-group">
+
+				<label for="">Question</label>
+				<input name="question_content" type="text" class="form-control" id="" placeholder="Input your desired question">
+
+				<label for="">Question Weight</label>
+				<input name="question_weight" type="text" class="form-control" id="" placeholder="Input the question weight">
+
+				<label for="">Question Category</label>
+				<div class="radio">
+				  	<label>
+					    <input type="radio" name="category" id="" value="General" checked>
+					    General
+				  	</label>
+				</div>
+
+				<div class="radio">
+					<label>
+						<input type="radio" name="category" id="" value="Child Abuse">
+						Child abuse
+					</label>
+				</div>
+
+				<div class="radio">
+					<label>
+						<input type="radio" name="category" id="" value="Child Porn">
+						Child porn
+					</label>
+				</div>
+
+			</div>
+			
+			<button type="submit" class="btn btn-primary">Add Question</button>
+		</form>
+	</div>
+
+	<div class="container" id="questions-table">
+		<h3>QUESTIONS TABLE OUTPUT</h3>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Question</th>
+					<th>Weight</th>
+					<th>Category</th>
+					<th>Date Created</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+					$query = mysqli_query($connection, "SELECT * FROM questions_table;");
+
+					while($r = mysqli_fetch_array($query)){
+						$question_id = $r['question_id'];
+						$question_content = $r['question_content'];
+						$question_weight = $r['question_weight'];
+						$question_category = $r['question_category'];
+						$date_created = $r['date_created'];
+
+						echo "
+						<tr>
+							<td>" . $question_id . "</td>
+							<td>" . $question_content . "</td>
+							<td>" . $question_weight . "</td>
+							<td>" . $question_category . "</td>
+							<td>" . $date_created . "</td>
+						</tr>";
+					}
+
+				?>
+				<tr>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!-- jQuery -->
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<!-- Bootstrap JavaScript -->
+	<script src="js/bootstrap.min.js""></script>
+	<script>
+	$(document).ready(function(){
+	    $("#hide").click(function(){
+	        $("p").hide(1000);
+	    });
+	    $("#show").click(function(){
+	        $("p").show(500);
+	    });
+	});
+	</script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	</body>
+</html>

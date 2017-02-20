@@ -40,6 +40,8 @@
 		echo "Child credentials already exists.";
 	}
 
+	mysqli_close($connection);
+
 
 ?>
 </body>
