@@ -18,7 +18,7 @@
 
 	// $insert_user = "INSERT INTO users_table (username, password, is_admin, firstname, middlename, lastname, email, is_active) VALUES ('$username', '$password', '$is_admin', '$firstname', '$middlename', '$lastname', '$contact_num', '$email', '1';)";
 
-	$insert_user = "INSERT INTO users_table (username, password, is_admin, firstname, middlename, lastname) VALUES ('$username', '$password', '$is_admin', '$firstname', '$middlename', '$lastname');";
+	$insert_user = "INSERT INTO users_table (username, password, is_admin, firstname, middlename, lastname, contact_num, email) VALUES ('$username', '$password', '$is_admin', '$firstname', '$middlename', '$lastname', '$contact_num', '$email');";
 
 
 	$sql = mysqli_query($connection, $insert_user);
