@@ -203,6 +203,48 @@
 		</table>
 	</div>
 
+	<div class="container" id="questions-table">
+		<h3>ANSWERS TABLE OUTPUT</h3>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Question</th>
+					<th>Answer Content</th>
+					<th>Date Answered</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+					$query = mysqli_query($connection, "SELECT * FROM answers_table;");
+
+					while($r = mysqli_fetch_array($query)){
+						$question_id = $r['question_id'];
+
+						$get_question = mysqli_query($connection, "SELECT question_content FROM questions_table WHERE question_id = '$question_id'");
+
+						$answer_content = $r['answer_content'];
+						$date_answered = $r['date_answered'];
+
+						echo "
+						<tr>
+							<td>";
+						while($r=mysqli_fetch_array($get_question)){ 
+								echo $r['question_content'];
+							} 
+						echo "</td>
+							<td>" . $answer_content . "</td>
+							<td>" . $date_answered . "</td>
+						</tr>";
+					}
+
+				?>
+				<tr>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
 	<!-- jQuery -->
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<!-- Bootstrap JavaScript -->
