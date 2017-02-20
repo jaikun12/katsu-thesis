@@ -19,7 +19,7 @@
 	<body>
 		<div class="container">
 		<form action="php/insert_user.php" method="POST" role="form">
-			<legend>Add a user or admin</legend>
+			<legend>Add a user or an admin</legend>
 		
 			<div class="form-group">
 
@@ -31,10 +31,10 @@
 
 				<div class="radio">
 					<label>Admin
-						<input type="radio" name="is_admin" id="" value="0" checked="checked">
+						<input type="radio" name="isadmin" id="" value="0">
 					</label>
 					<label>User
-						<input type="radio" name="is_admin" id="" value="1" checked="checked">
+						<input type="radio" name="isadmin" id="" value="1">
 					</label>
 				</div>
 				
