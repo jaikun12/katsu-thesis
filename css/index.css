@@ -31,6 +31,10 @@ h1{
 	font-size:5.3vh;
 }
 
+h2{
+	font-size:4vh;
+}
+
 h4{
 	font-size:2.3vh;
 	/*font-family:'Open Sans';*/
@@ -45,6 +49,7 @@ h4{
 	min-width:70vw;
 	background-color:#459DE3;
 	color:white;
+	text-decoration:none;
 }
 
 .hollow-btn{
@@ -56,4 +61,16 @@ h4{
 	background-color:white;
 	color:rgb(200,200,200);
 }
+
+.link{
+	font-size:3vh;
+	padding:20px;
+	border:none;
+	margin:15px;
+	min-width:70vw;
+	background-color:none;
+	color:rgb(200,200,200);
+	text-decoration:none;
+}
+
 
