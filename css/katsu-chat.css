@@ -1,0 +1,15 @@
+*{
+	margin:0;
+	box-sizing:border-box;
+	padding:none;
+}
+
+nav{
+	height:100px;
+	background:#295082;
+}
+
+#katsu{
+	height:50em;
+	width:50em;
+}
