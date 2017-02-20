@@ -6,6 +6,9 @@
 	<head>
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		
 	</head>
 	<body>
 		<div id="welcome-div">
@@ -31,6 +34,49 @@
 			</center>
 		</form>
 		</div>
+		<div class="container" id="childs-table">
+		<h3>CHILDS TABLE OUTPUT</h3>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Gender</th>
+					<th>Province</th>
+					<th>City</th>
+					<th>Time Created</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+					$query = mysqli_query($connection, "SELECT * FROM childs_table;");
+
+					while($r = mysqli_fetch_array($query)){
+						$firstname = $r['child_fname'];
+						$middlename = $r['child_mname'];
+						$lastname = $r['child_lname'];
+						$name = $lastname . ", " . $firstname . " " . $middlename;
+						$age = $r['child_age'];
+						$gender = $r['child_gender'];
+						$province = $r['child_prov'];
+						$city = $r['child_city'];
+						$time_created = $r['time_created'];
+
+						echo "
+						<tr>
+							<td>" . $name . "</td>
+							<td>" . $gender . "</td>
+							<td>" . $age . "</td>
+							<td>" . $province . "</td>
+							<td>" . $city . "</td>
+							<td>" . $time_created . "</td>
+						</tr>";
+					}
+
+				?>
+			</tbody>
+		</table>
+	</div>
 	</body>
 	<script>
 	function selectedRadio1(){

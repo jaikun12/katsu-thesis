@@ -115,9 +115,6 @@
 					}
 
 				?>
-				<tr>
-					<td></td>
-				</tr>
 			</tbody>
 		</table>
 	</div>
@@ -196,9 +193,6 @@
 					}
 
 				?>
-				<tr>
-					<td></td>
-				</tr>
 			</tbody>
 		</table>
 	</div>
@@ -238,9 +232,6 @@
 					}
 
 				?>
-				<tr>
-					<td></td>
-				</tr>
 			</tbody>
 		</table>
 	</div>
