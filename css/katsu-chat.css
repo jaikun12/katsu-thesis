@@ -2,6 +2,7 @@
 	margin:0;
 	box-sizing:border-box;
 	padding:none;
+	font-family:'Open Sans';
 }
 
 nav{
@@ -12,4 +13,14 @@ nav{
 #katsu{
 	height:50em;
 	width:50em;
+}
+
+h2{
+	font-size:3.9vh;
+
+}
+
+button{
+	font-size:2.6vh;
+	margin:50px;
 }
