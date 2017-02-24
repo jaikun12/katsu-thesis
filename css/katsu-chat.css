@@ -1,19 +1,16 @@
 *{
 	margin:0;
 	box-sizing:border-box;
-	padding:none;
+	padding:0;
 	font-family:'Open Sans';
 }
 
-nav{
-	height:100px;
-	background:#295082;
+body{
+	background-size:cover;
+	background-repeat:no-repeat;
 }
 
-#katsu{
-	height:50em;
-	width:50em;
-}
+
 
 h2{
 	font-size:3.9vh;
@@ -23,9 +20,21 @@ h2{
 button{
 	font-size:2.6vh;
 	margin:100px;
+	color:white;
+	-o-transition:.2s;
+  	-ms-transition:.2s;
+  	-moz-transition:.2s;
+  	-webkit-transition:.2s;
+  	background:none;
+  	border:none;
+  	padding:20px;
 }
 
-.container{
-	width:90%;
-	margin:0 auto;
+button:hover{
+	border:solid white 3px;
+	border-radius:30px;
+	background:none;
 }
+
+
+

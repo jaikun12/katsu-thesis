@@ -2,6 +2,15 @@
 <html>
 <?php
 	require("php/dbconnect.php");
+	session_start();
+	$username = $_SESSION['username'];
+
+	if(!isset($username)){
+		header('Location: index.php');
+	}
+	else{
+		
+	}
 	?>
 
 	<head>
@@ -10,11 +19,17 @@
 
 	</head>
 	<body>
+		<a href="php/logout.php"><img src="images/power-btn.png" class="logout-btn"></a>
 		<div id="welcome-div">
 			<center>
 			<img src="images/katsu.gif">
-			<h1>Welcome to Katsu</h1>
-			<h4>Katsu is a chatbot used to obtain responses from suspected child pronography victims. To begin, create a child profile and start a session with katsu.</h4>
+			<h1>Start a conversation with katsu.</h1>
+			</center>
+			<h4>Before starting a session, we require you to create a profile of the child that you are going to interview with katsu.</h4>
+			<br>
+			<h4>Fill up the form below to start a session with katsu.</h4>
+
+			<center>
 			<form action="php/user-authentication.php" method="POST">
 				<input type="text" name="profile_id" placeholder="Child Profile ID">
 				<input type="password" name="password" placeholder="Child Session Password">

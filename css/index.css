@@ -5,38 +5,58 @@
 	font-family:'Open Sans';
 }
 
+body{
+	/*background: #457fca; 
+	background: -webkit-linear-gradient(to left, #457fca , #5691c8); 
+	background: linear-gradient(to left, #457fca , #5691c8); */
+	background:url(../images/bg.jpg);
+	background-size:cover;
+}
+
 #welcome-div{
 	height:100vh;
 	width:100vw;
+	text-align:left;
 	display:table-cell;
 	vertical-align:middle;
 	padding:10%;
+	color:white;
+
 }
 
 #welcome-div form{
 	font-size:3vh;
+	margin-top:70px;
 }
 
 #welcome-div input{
-	font-size:2.6vh;
+	font-size:0.7em;
 	height:4vh;
 	width:70vw;
-	/*background:red;*/
+	background:none;
 	margin:15px;
-	border:solid #458CE3 1px;
+	border:solid white 1px;
+	border-top:none;
+	border-left:none;
+	border-right:none;
 	padding:10px;
+	color:white;
+}
+
+#welcome-div input:focus{
+	border:solid white 5px;
 }
 
 h1{
-	font-size:5.3vh;
+	font-size:4em;
 }
 
 h2{
-	font-size:4vh;
+	font-size:3.5em;
 }
 
 h4{
-	font-size:2.3vh;
+	font-size:2em;
 	/*font-family:'Open Sans';*/
 
 }
@@ -44,12 +64,14 @@ h4{
 .primary-btn{
 	font-size:3vh;
 	padding:20px;
-	border:none;
+	border:solid white 3px;
 	margin:15px;
 	min-width:70vw;
-	background-color:#459DE3;
+	background:none;
 	color:white;
 	text-decoration:none;
+	border-right:none;
+	border-left:none;
 }
 
 .hollow-btn{
@@ -74,4 +96,35 @@ h4{
 	text-decoration:none;
 }
 
+.error-msg{
+	color:#8D1C1D;
+	font-size:2em;
+	text-align:center;
+}
 
+::-webkit-input-placeholder {
+   color:white;
+   font-size:0.7em;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color:white;
+   font-size:0.7em;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color:white;
+   font-size:0.7em;
+}
+
+:-ms-input-placeholder {  
+   color:white;
+   font-size:0.7em;
+}
+
+.logout-btn{
+	position:absolute;
+	right:10px;
+	top:10px;
+	margin:20px;
+}

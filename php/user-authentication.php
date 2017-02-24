@@ -5,7 +5,7 @@
 	$password = $_POST['password'];
 
 	if($username == null || $password == null){
-		header("../index.php");
+		header("Location: ../index.php?error=1");
 	}
 	else{
 		$query = "SELECT * FROM users_table WHERE username = '$username' AND password = '$password'";
@@ -19,7 +19,7 @@
 			header("Location: ../home.php");
 		}
 		else{
-			header("Location: ../index.php");
+			header("Location: ../index.php?error=2");
 		}
 	}
 

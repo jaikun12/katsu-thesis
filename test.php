@@ -18,13 +18,11 @@
 	else{
 		
 	}
-	?>
 
+	?>
 	<head>
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/katsu-chat.css">
 		<link rel="stylesheet" type="text/css" href="css/index.css">
-
 	</head>
 	<body>
 		<a href="php/logout.php"><img src="images/power-btn.png" class="logout-btn"></a>
@@ -41,4 +39,5 @@
 			</center>
 		</div>
 	</body>
+	
 </html>

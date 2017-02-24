@@ -14,20 +14,19 @@
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="css/bootstrap.min.css">
-
-		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
+		<link rel="stylesheet" type="text/css" href="css/admin.css">
 	</head>
 	<body>
+		<nav>
 
+		</nav>
+	<div class="modal fade" id="user-modal" tabindex="-1" role="dialog">
+ 		 <div class="modal-dialog" role="document">
+    		<div class="modal-content">
+    	  <div class="modal-body">
+   		    	<div class="container-fluid">
 
-	<div class="container-fluid">
-
-		<div class="container" id="add-user-content">
+		<!-- <div class="container" id="add-user-content"> -->
 		<form action="php/insert_user.php" method="POST" role="form">
 			<legend>Add a user or an admin</legend>
 		
@@ -72,9 +71,14 @@
 			
 			<button type="submit" class="btn btn-primary">Add User</button>
 		</form>
-		</div>
+		<!-- </div> -->
 
 	</div>
+    	  </div>
+    	  
+   	 </div>
+  	</div>
+</div>
 
 	<div class="container" id="users-table">
 		<h3>USERS TABLE OUTPUT</h3>
@@ -120,47 +124,11 @@
 				</tr>
 			</tbody>
 		</table>
+		<button class="btn-primary" data-toggle="modal" data-target="#user-modal">Add User</button>
 	</div>
 
-	<div class="container" id="add-questions">
-		<form action="php/create_question.php" method="POST" role="form">
-			<legend>Add a question</legend>
-		
-			<div class="form-group">
 
-				<label for="">Question</label>
-				<input name="question_content" type="text" class="form-control" id="" placeholder="Input your desired question">
-
-				<label for="">Question Weight</label>
-				<input name="question_weight" type="text" class="form-control" id="" placeholder="Input the question weight">
-
-				<label for="">Question Category</label>
-				<div class="radio">
-				  	<label>
-					    <input type="radio" name="category" id="" value="General" checked>
-					    General
-				  	</label>
-				</div>
-
-				<div class="radio">
-					<label>
-						<input type="radio" name="category" id="" value="Child Abuse">
-						Child abuse
-					</label>
-				</div>
-
-				<div class="radio">
-					<label>
-						<input type="radio" name="category" id="" value="Child Porn">
-						Child porn
-					</label>
-				</div>
-
-			</div>
-			
-			<button type="submit" class="btn btn-primary">Add Question</button>
-		</form>
-	</div>
+	
 
 	<div class="container" id="questions-table">
 		<h3>QUESTIONS TABLE OUTPUT</h3>
@@ -201,7 +169,58 @@
 				</tr>
 			</tbody>
 		</table>
+		<button class="btn-primary" data-toggle="modal" data-target="#questions-modal">Add Question</button>
 	</div>
+
+	<div class="modal fade" id="questions-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+        	<!-- <div class="container" id="add-questions"> -->
+		<form action="php/create_question.php" method="POST" role="form">
+			<legend>Add a question</legend>
+		
+			<div class="form-group">
+
+				<label for="">Question</label>
+				<input name="question_content" type="text" class="form-control" id="" placeholder="Input your desired question">
+
+				<label for="">Question Weight</label>
+				<input name="question_weight" type="text" class="form-control" id="" placeholder="Input the question weight">
+
+				<label for="">Question Category</label>
+				<div class="radio">
+				  	<label>
+					    <input type="radio" name="category" id="" value="General" checked>
+					    General
+				  	</label>
+				</div>
+
+				<div class="radio">
+					<label>
+						<input type="radio" name="category" id="" value="Child Abuse">
+						Child abuse
+					</label>
+				</div>
+
+				<div class="radio">
+					<label>
+						<input type="radio" name="category" id="" value="Child Porn">
+						Child porn
+					</label>
+				</div>
+
+			</div>
+			
+			<button type="submit" class="btn btn-primary">Add Question</button>
+		</form>
+	<!-- </div> -->
+      </div>
+      
+    </div>
+  </div>
+</div>
 
 	<!-- jQuery -->
 	<script src="js/jquery-3.1.1.min.js"></script>
