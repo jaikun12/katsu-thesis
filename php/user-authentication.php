@@ -16,14 +16,31 @@
 		if($count!=0){
 
 			session_start();
-			if($r = mysqli_fetch_array($check_db)){
+
+			if($r = mysqli_fetch_array($check_db)){ // gets user information
+
 				$_SESSION['user_id'] = $r['user_id'];
 				$_SESSION['username'] = $r['username'];
 				$_SESSION['firstname'] = $r['firstname'];
 				$_SESSION['lastname'] = $r['lastname'];
-			}
+				$_SESSION['is_admin'] = $r['is_admin'];
 
-			header("Location: ../home.php");
+				$KIA = $r['is_active'];
+
+				if($KIA == 1){ //checks if is active
+
+					if($_SESSION['is_admin'] == 1){ // checks admin priv
+						header("Location: ../admin-dashboard.php");
+					}
+					else{
+						header("Location: ../home.php");
+					}
+
+				}else{
+					header("Location: ../index.php?error=3");
+				}
+
+			}
 
 		}
 		else{
