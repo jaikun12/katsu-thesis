@@ -14,6 +14,9 @@
 		elseif($error_code = 3){
 			echo '<p class="error-msg">This username is deactivated.</p>';
 		}
+		elseif($error_code = 4){
+			echo '<p class="error-msg">The password is incorrect.</p>';
+		}
 		else{
 
 		}

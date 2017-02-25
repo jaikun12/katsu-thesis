@@ -2,7 +2,9 @@
 	require("dbconnect.php");
 
 	$username = $_POST['username'];
-	$password = $_POST['password'];
+	$password_base = $_POST['password'];
+
+	$password = crypt($password_base, '$1$2$');
 
 	if($username == null || $password == null){
 		header("Location: ../index.php?error=1");
