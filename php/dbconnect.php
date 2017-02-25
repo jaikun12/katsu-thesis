@@ -16,5 +16,4 @@
 	 	mysqli_query($connection, "USE katsudb;");
 	}
 
-
 	?>
