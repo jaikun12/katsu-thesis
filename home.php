@@ -2,17 +2,8 @@
 <html>
 <?php
 	require("php/dbconnect.php");
-	session_start();
-	$username = $_SESSION['username'];
-
-	if(!isset($username)){
-		header('Location: index.php');
-	}
-	else{
-
-	}
-
-	?>
+	require("php/session_check.php");
+		?>
 
 	<head>
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -25,7 +16,7 @@
 			<center>
 			
 			<img src="images/katsu.gif">
-			<h1>Welcome <?php echo $username;?></h1>
+			<h1>Welcome <?php echo $lastname . ", " . $firstname . ".";?></h1>
 			<br>
 			<h4>Before starting a session, we require you to create a profile of the child that you are going to interview with katsu.</h4>
 			<br>

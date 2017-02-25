@@ -16,11 +16,15 @@
 		if($count!=0){
 
 			session_start();
-			$_SESSION['username'] = $username;
-			$_SESSION['password'] = $password;
+			if($r = mysqli_fetch_array($check_db)){
+				$_SESSION['user_id'] = $r['user_id'];
+				$_SESSION['username'] = $r['username'];
+				$_SESSION['firstname'] = $r['firstname'];
+				$_SESSION['lastname'] = $r['lastname'];
+			}
 
 			header("Location: ../home.php");
-			
+
 		}
 		else{
 			header("Location: ../index.php?error=2");
