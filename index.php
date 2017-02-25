@@ -3,12 +3,8 @@
 	
 	<?php
 
-		require("php/dbconnect.php");
-
-		session_start();
-		if(isset($_SESSION['userid'])){
-			header("Location: home.php");
-		}
+		require_once("php/dbconnect.php");
+		require("php/session_init.php");
 
 	?>
 

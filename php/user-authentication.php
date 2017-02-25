@@ -36,7 +36,7 @@
 						header("Location: ../home.php");
 					}
 
-				}else{
+				}else{ // if inactive
 					header("Location: ../index.php?error=3");
 				}
 

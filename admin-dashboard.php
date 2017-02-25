@@ -1,6 +1,7 @@
 <?php
 
 	require_once("php/dbconnect.php");
+	require("php/session_check.php");
 
 ?>
 
@@ -10,6 +11,9 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<h1>Welcome <?php echo $lastname . ", " . $firstname . ".";?></h1>
+
 		<title>Admin Dashboard</title>
 
 		<!-- Bootstrap CSS -->
@@ -17,9 +21,7 @@
 		<link rel="stylesheet" type="text/css" href="css/admin.css">
 	</head>
 	<body>
-		<nav>
-
-		</nav>
+	<a href="php/logout.php"><img src="images/power-btn.png" class="logout-btn"></a>
 	<div class="modal fade" id="user-modal" tabindex="-1" role="dialog">
  		 <div class="modal-dialog" role="document">
     		<div class="modal-content">
@@ -27,7 +29,7 @@
    		    	<div class="container-fluid">
 
 		<!-- <div class="container" id="add-user-content"> -->
-		<form action="php/insert_user.php" method="POST" role="form">
+		<form action="php/create_user.php" method="POST" role="form">
 			<legend>Add a user or an admin</legend>
 		
 			<div class="form-group">
