@@ -16,7 +16,7 @@
 	$contact_num = $_POST['contact_num'];
 	$email = $_POST['email'];
 
-	$encrypted = crypt($password, '$1$2$');
+	$encrypted = crypt($password, '$!@#$%ChilDPorN');
 
 	//debug
 	echo "<br> Username: " . $username;
@@ -33,7 +33,7 @@
 
 	$check_db = mysqli_query($connection, "SELECT * FROM users_table WHERE username = '$username';");
 
-	if(mysqli_num_rows($check_db)==0){ // if username taken
+	if(mysqli_num_rows($check_db)==0){ // if username is not taken
 
 		$insert_user = "INSERT INTO users_table (username, password, is_admin, firstname, middlename, lastname, contact_num, email, is_active) VALUES ('$username', '$encrypted', '$is_admin', '$firstname', '$middlename', '$lastname', '$contact_num', '$email', 1);";
 
@@ -43,7 +43,7 @@
 		    	echo "<br><br>Check code. <br>" . mysqli_error($connection);
 		    }else{
 		    	//debug here
-		    	// header("Location: ../admin-dashboard.php");
+		    	header("Location: ../admin-dashboard.php?success=1");
 		    }
 
 	}else{

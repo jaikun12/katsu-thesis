@@ -1,4 +1,5 @@
 <?php
+
 	$url = 'localhost';
 	$db_user = 'root';
 	$db_pass = '';
@@ -16,4 +17,4 @@
 	 	mysqli_query($connection, "USE katsudb;");
 	}
 
-	?>
+?>

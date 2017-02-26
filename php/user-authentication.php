@@ -4,7 +4,7 @@
 	$username = $_POST['username'];
 	$password_base = $_POST['password'];
 
-	$password = crypt($password_base, '$1$2$');
+	$password = crypt($password_base, '$!@#$%ChilDPorN');
 
 	if($username == null || $password == null){
 		header("Location: ../index.php?error=1");

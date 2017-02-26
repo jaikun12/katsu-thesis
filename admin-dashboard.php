@@ -12,7 +12,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<h1>Welcome <?php echo $lastname . ", " . $firstname . ".";?></h1>
+		<h2 style="margin-left:1em;">Welcome <?php echo $lastname . ", " . $firstname . ".";?></h2>
 
 		<title>Admin Dashboard</title>
 
@@ -35,10 +35,10 @@
 			<div class="form-group">
 
 				<label for="">Username</label>
-				<input name="username" type="text" class="form-control" id="" placeholder="Input username">
+				<input name="username" type="text" class="form-control" id="" placeholder="Input username" required>
 
 				<label for="">Password</label>
-				<input name="password" type="password" class="form-control" id="" placeholder="Input password">
+				<input name="password" type="password" class="form-control" id="" placeholder="Input password" required>
 
 				<div class="radio">
 				  	<label>
@@ -55,19 +55,19 @@
 				</div>
 				
 				<label for="">First Name</label>
-				<input name="firstname" type="text" class="form-control" id="" placeholder="Input username">
+				<input name="firstname" type="text" class="form-control" id="" placeholder="Input username" required>
 
 				<label for="">Middle Name</label>
 				<input name="middlename" type="text" class="form-control" id="" placeholder="Input username">
 
 				<label for="">Last Name</label>
-				<input name="lastname" type="text" class="form-control" id="" placeholder="Input username">
+				<input name="lastname" type="text" class="form-control" id="" placeholder="Input username" required>
 
 				<label for="">Contact Number</label>
-				<input name="contact_num" type="text" class="form-control" id="" placeholder="Input username">
+				<input name="contact_num" type="text" class="form-control" id="" placeholder="Input username" required>
 
 				<label for="">E-mail</label>
-				<input name="email" type="text" class="form-control" id="" placeholder="Input username">
+				<input name="email" type="text" class="form-control" id="" placeholder="Input username" required>
 
 			</div>
 			
@@ -108,7 +108,6 @@
 						$contact_num = $r['contact_num'];
 						$email = $r['email'];
 
-
 						echo "
 						<tr>
 							<td>" . $username . "</td>
@@ -124,6 +123,10 @@
 			</tbody>
 		</table>
 		<button class="btn-primary" data-toggle="modal" data-target="#user-modal">Add User</button>
+
+		<?php
+			include("models/success_prompts.php");
+		?>
 	</div>
 
 
