@@ -4,8 +4,8 @@
 
 	
 
-	// $query = $connection->prepare("INSERT INTO users_table (username, password) VALUES (?,?);");
-	$query = $connection->prepare("SELECT * FROM users_table WHERE username = ? AND password = ?;");
+	$query = $connection->prepare("INSERT INTO users_table (username, password) VALUES (?,?);");
+	$query2 = $connection->prepare("SELECT * FROM users_table WHERE username = ? AND password = ?;");
 
 	echo mysqli_error($connection);
 
@@ -20,7 +20,10 @@
 	$query->execute();
 	$query->store_result();
 
-	$row_count = $query->num_rows;
+	$query2->execute();
+	$query2->store_result();
+
+	$row_count = $query2->num_rows;
 	if($row_count==0){
 		echo "Bad. No row?<br>";
 	}else{
@@ -28,6 +31,8 @@
 	}
 
 	echo $row_count;
+
+	while($r=$checkdb)
 
 	$query->close();
 	$connection->close();
