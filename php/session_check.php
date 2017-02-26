@@ -18,7 +18,7 @@
 		if($admin == 1){
 			// header("Location: admin-dashboard.php");
 		}else{
-			header("Location: home.php");
+			// header("Location: home.php");
 		}
 
 		
