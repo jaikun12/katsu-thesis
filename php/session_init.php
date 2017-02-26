@@ -20,6 +20,7 @@
 		
 	}else{
 		// header("Location: index.php"); unending loop
+		// bakit mo kasi nilagay sa index to :/
 	}
 
 ?>
