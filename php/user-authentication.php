@@ -1,33 +1,37 @@
 <?php
-	require("dbconnect.php");
+	include("dbconnect.php");
 
 	$username = $_POST['username'];
-	$password_base = $_POST['password'];
+	$password = $_POST['password'];
 
-	$password = crypt($password_base, '!@#$%ChilDPorN');
-
-	if($username == null || $password == null){
+	if(!$username || !$password){
 		header("Location: ../index.php?error=1");
-	}
-	else{
+	}else{
+		$checkdb = $connection->prepare("SELECT user_id, username, is_admin, firstname, lastname, is_active  FROM users_table WHERE username = ? AND password = ?;");
+		$checkdb->bind_param("ss",$username,$init_pass);
 
-		$query = "SELECT * FROM users_table WHERE username = '$username' AND password = '$password'";
-		$check_db = mysqli_query($connection, $query);
-		$count = mysqli_num_rows($check_db);
+		$init_pass = crypt($password, "!@#$%ChilDPorN");
 
-		if($count!=0){
+		$checkdb->execute();
+		$checkdb->store_result();
+		$row_count = $checkdb->num_rows;
 
+		if($row_count==0){
+			header("Location: ../index.php?error=2");
+		}else{
 			session_start();
 
-			if($r = mysqli_fetch_array($check_db)){ // gets user information
+			$checkdb->execute();
+			$checkdb->bind_result($user_id, $username, $is_admin, $firstname, $lastname, $is_active);
 
-				$_SESSION['user_id'] = $r['user_id'];
-				$_SESSION['username'] = $r['username'];
-				$_SESSION['firstname'] = $r['firstname'];
-				$_SESSION['lastname'] = $r['lastname'];
-				$_SESSION['is_admin'] = $r['is_admin'];
+			while($r = $checkdb->fetch()){
 
-				$KIA = $r['is_active'];
+				$_SESSION['user_id'] = $user_id;
+				$_SESSION['username'] = $username;
+				$_SESSION['firstname'] = $firstname;
+				$_SESSION['lastname'] = $lastname;
+				$_SESSION['is_admin'] = $is_admin;
+				$KIA = $is_active;
 
 				if($KIA == 1){ //checks if is active
 
@@ -41,13 +45,9 @@
 				}else{ // if inactive
 					header("Location: ../index.php?error=3");
 				}
-
 			}
-
-		}
-		else{
-			header("Location: ../index.php?error=2");
 		}
 	}
 
-?>
+
+	?>
