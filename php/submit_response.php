@@ -11,6 +11,15 @@
 	else{
 		$redirect = "Location: ../katsu-chat.php?question=".$nextQuestion;
 	}
+
+	// $submit_answer = $connection->prepare("INSERT INTO answers_table (question_id, victim_id, answer_content) VALUES (?,?,?)");
+
+	// $submit_answer->bind_param("iis", $question_id, $victim_id, $answer);
+
+	// $question_id = $questionNo;
+	// $victim_id = $_SESSION['victim_id'];
+	// $answer = $_POST['answer'];
+	// $submit_answer->execute();
 	
 	header($redirect);
 
