@@ -30,13 +30,16 @@
 			<h4>Fill up the form below to start a session with katsu.</h4>
 
 			<center>
-			<form action="php/user-authentication.php" method="POST">
+			<form action="php/katsu_start_session.php" method="POST">
 				<input type="text" name="profile_id" placeholder="Child Profile ID">
 				<input type="password" name="password" placeholder="Child Session Password">
 				<button type="submit" class="primary-btn">Start Session</button>
 				<a href="home.php" class="link">Cancel</a>
 			</form>
 			</center>
+			<?php
+				include("models/error_prompts.php");
+			?>
 		</div>
 	</body>
 </html>
