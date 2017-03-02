@@ -4,16 +4,18 @@
 <?php
 
 	include("dbconnect.php");
+	include("session_check.php");
 
 	//preparation
 	$check_child_table = $connection->prepare("SELECT * FROM childs_table WHERE child_fname = ? AND child_mname = ? AND child_lname = ?;");
 
 	$check_child_table->bind_param("sss", $child_fname,$child_mname,$child_lname);
 
-	$insert_query = $connection->prepare("INSERT INTO childs_table (child_fname, child_mname, child_lname, child_age, child_gender, gender_prov, child_city, child_pword) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+	$insert_query = $connection->prepare("INSERT INTO childs_table (user_id, child_fname, child_mname, child_lname, child_age, child_gender, child_prov, child_city, child_pword) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-	$insert_query->bind_param("sssissss",$child_fname,$child_mname,$child_lname,$child_age,$child_gender,$child_prov,$child_city,$child_pword);
+	$insert_query->bind_param("isssissss",$userid,$child_fname,$child_mname,$child_lname,$child_age,$child_gender,$child_prov,$child_city,$child_pword);
 
+	$userid = $_SESSION['user_id'];
 	$child_fname = $_POST['child_fname'];
 	$child_mname = $_POST['child_mname'];
 	$child_lname = $_POST['child_lname'];
@@ -21,7 +23,8 @@
 	$child_gender = $_POST['child_gender'];
 	$child_prov = $_POST['child_prov'];
 	$child_city = $_POST['child_city'];
-	$child_pword = crypt($_POST['child_pword'], '$!@#$%ChilDPorN');
+	$child_pword1 = $_POST['child_pword'];
+	$child_pword = crypt($child_pword1, '$!@#$%ChilDPorN');
 
 	echo "<br>child_fname: ".$child_fname;
 	echo "<br>child_mname: ".$child_mname;
@@ -36,9 +39,12 @@
 	echo "<br>";
 
 	$check_child_table->execute();
+	$check_child_table->store_result();
+	$row_count = $check_child_table->num_rows;
 
-	if(mysqli_num_rows($check_child_table) == 0){ // no record //continue
+	echo $row_count;
 
+	if($row_count==0){
 		$insert_query->execute();
 
 		if (!$insert_query){
@@ -46,9 +52,10 @@
 		}else{
 			echo "Child credentials created.";
 		}
-
 	}else{
+		
 		echo "Child credentials already exists.";
+		
 	}
 
 	//close
