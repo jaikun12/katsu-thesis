@@ -6,10 +6,12 @@
 	include("dbconnect.php");
 
 	//preparation
-	$check_child_table = $connection->prepare("SELECT * FROM childs_table WHERE child_fname = '?' AND child_mname = '?' AND child_lname = '?';");
+	$check_child_table = $connection->prepare("SELECT * FROM childs_table WHERE child_fname = ? AND child_mname = ? AND child_lname = ?;");
+
 	$check_child_table->bind_param("sss", $child_fname,$child_mname,$child_lname);
 
-	$insert_query = mysqli_query($connection, "INSERT INTO childs_table (child_fname, child_mname, child_lname, child_age, child_gender, gender_prov, child_city, child_pword) VALUES ('?', '?', '?', '?', '?', '?', '?', '?')");
+	$insert_query = $connection->prepare("INSERT INTO childs_table (child_fname, child_mname, child_lname, child_age, child_gender, gender_prov, child_city, child_pword) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+
 	$insert_query->bind_param("sssissss",$child_fname,$child_mname,$child_lname,$child_age,$child_gender,$child_prov,$child_city,$child_pword);
 
 	$child_fname = $_POST['child_fname'];
@@ -19,7 +21,7 @@
 	$child_gender = $_POST['child_gender'];
 	$child_prov = $_POST['child_prov'];
 	$child_city = $_POST['child_city'];
-	$child_pword = crypt($_POST['child_pword'], '$!@#$%ChilDPorN';
+	$child_pword = crypt($_POST['child_pword'], '$!@#$%ChilDPorN');
 
 	echo "<br>child_fname: ".$child_fname;
 	echo "<br>child_mname: ".$child_mname;
