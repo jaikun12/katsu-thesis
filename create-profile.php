@@ -2,6 +2,7 @@
 <html>
 <?php
 	require("php/dbconnect.php");
+	include("php/session_check.php");
 	?>
 	<head>
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -13,8 +14,17 @@
 	<body>
 		<a href="php/logout.php"><img src="images/power-btn.png" class="logout-btn"></a>
 		<div id="welcome-div">
-		<center>
-		<h2>Create Child Profile</h2>
+			<center>
+
+			<h2>Create Child Profile</h2>
+
+			<div class="container" style="margin-bottom: -4em;">
+
+				<?php 	
+					include("models/success_prompts.php");
+				?>
+
+			</div>
 		
 		<form action="php/create_profile.php" method="POST">
 			<input type="text" name="child_fname" placeholder="Child's First Name">
@@ -34,6 +44,15 @@
 			<a href="home.php" class="link">Cancel</a>
 			</center>
 		</form>
+
+
+		<div class="container">
+		<?php 
+			include("models/error_prompts.php");
+		 ?>
+		</div>
+
+
 		</div>
 		<div class="container" id="childs-table">
 		<h3>CHILDS TABLE OUTPUT</h3>
@@ -80,21 +99,18 @@
 	</div>
 	</body>
 	<script>
-	function selectedRadio1(){
-		x = document.getElementById("male_label");
-		y = document.getElementById("female_label");
-		x.style.border = "solid white 3px";
-		y.style.border = "none";
-	}
+		function selectedRadio1(){
+			x = document.getElementById("male_label");
+			y = document.getElementById("female_label");
+			x.style.border = "solid white 3px";
+			y.style.border = "none";
+		}
 
-	function selectedRadio2(){
-		x = document.getElementById("female_label");
-		y = document.getElementById("male_label");
-		x.style.border = "solid white 3px";
-		y.style.border = "none";
-	}
-
-
-
+		function selectedRadio2(){
+			x = document.getElementById("female_label");
+			y = document.getElementById("male_label");
+			x.style.border = "solid white 3px";
+			y.style.border = "none";
+		}
 	</script>
 </html>

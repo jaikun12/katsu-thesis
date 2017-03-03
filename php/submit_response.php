@@ -1,9 +1,11 @@
 <?php 
 	include('dbconnect.php');
-	session_start();
+	include('session_check.php');
+
 	$child_id = $_SESSION['child_id'];
 	$answer = $_POST['answer'];
 	$questionNo = $_POST['question_no'];
+
 	$nextQuestion = $questionNo + 1;
 
 	$query = "SELECT * FROM questions_table";
@@ -30,5 +32,6 @@
 	// $submit_answer->execute();
 	
 	header($redirect);
+}
 
 ?>

@@ -44,19 +44,26 @@
 
 	echo $row_count;
 
-	if($row_count==0){
-		$insert_query->execute();
-
-		if (!$insert_query){
-			echo "$insert_query error!" . mysqli_error($connection);
-		}else{
-			echo "Child credentials created.";
-		}
+	
+	if(!$child_fname || !$child_lname){
+		header("Location: ../create-profile.php?error=6");
 	}else{
-		
-		echo "Child credentials already exists.";
-		
+		if($row_count==0){
+			$insert_query->execute();
+
+			if (!$insert_query){
+				echo "$insert_query error!" . mysqli_error($connection);
+			}else{
+				echo "Child credentials created.";
+				header("Location: ../create-profile.php?success=5");
+			}
+		}else{
+			echo "Child credentials already exists.";
+			header("Location: ../create-profile.php?error=5");
+			
+		}
 	}
+	
 
 	//close
 	$check_child_table->close();

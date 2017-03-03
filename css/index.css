@@ -102,6 +102,12 @@ h4{
 	text-align:center;
 }
 
+.success-msg{
+	/*color:#22830A;*/
+	font-size:1.4em;
+	text-align:center;
+}
+
 ::-webkit-input-placeholder {
    color:white;
    font-size:0.7em;
