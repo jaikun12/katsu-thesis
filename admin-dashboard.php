@@ -14,6 +14,12 @@
 
 		<h2 style="margin-left:1em;">Welcome <?php echo $lastname . ", " . $firstname . ".";?></h2>
 
+		<div style="margin-left:1em;" class="container">
+			<?php
+				include("models/success_prompts.php");
+			?>
+		</div>
+
 		<title>Admin Dashboard</title>
 
 		<!-- Bootstrap CSS -->
@@ -84,7 +90,7 @@
 
 	<div class="container" id="users-table">
 		<h3>USERS TABLE OUTPUT</h3>
-		<table class="table table-hover">
+		<table class="table table-hover" style="max-width: 90% !important;">
 			<thead>
 				<tr>
 					<th>Username</th>
@@ -124,13 +130,7 @@
 		</table>
 		<button class="btn-primary" data-toggle="modal" data-target="#user-modal">Add User</button>
 
-		<?php
-			include("models/success_prompts.php");
-		?>
 	</div>
-
-
-	
 
 	<div class="container" id="questions-table">
 		<h3>QUESTIONS TABLE OUTPUT</h3>
@@ -139,8 +139,8 @@
 				<tr>
 					<th>ID</th>
 					<th>Question</th>
-					<th>Weight</th>
-					<th>Category</th>
+<!-- 					<th>Weight</th>
+					<th>Category</th> -->
 					<th>Date Created</th>
 				</tr>
 			</thead>
@@ -151,16 +151,21 @@
 					while($r = mysqli_fetch_array($query)){
 						$question_id = $r['question_id'];
 						$question_content = $r['question_content'];
-						$question_weight = $r['question_weight'];
-						$question_category = $r['question_category'];
+
+						
+						// $question_weight = $r['question_weight'];
+						// $question_category = $r['question_category'];
+							// 						<td>" . $question_weight . "</td>
+							// <td>" . $question_category . "</td>
+
+
 						$date_created = $r['date_created'];
 
 						echo "
 						<tr>
 							<td>" . $question_id . "</td>
 							<td>" . $question_content . "</td>
-							<td>" . $question_weight . "</td>
-							<td>" . $question_category . "</td>
+
 							<td>" . $date_created . "</td>
 						</tr>";
 					}
@@ -168,6 +173,7 @@
 				?>
 			</tbody>
 		</table>
+		<button class="btn-primary" data-toggle="modal" data-target="#questions-modal">Add Question</button>
 	</div>
 
 	<div class="container" id="questions-table">
@@ -207,7 +213,7 @@
 				?>
 			</tbody>
 		</table>
-		<button class="btn-primary" data-toggle="modal" data-target="#questions-modal">Add Question</button>
+		
 	</div>
 
 	<div class="modal fade" id="questions-modal" tabindex="-1" role="dialog">
