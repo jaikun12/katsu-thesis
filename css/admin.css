@@ -7,3 +7,10 @@ nav{
 	height:70px;
 	background:rgb(40,40,40);
 }
+
+.logout-btn{
+	position:absolute;
+	right:10px;
+	top:10px;
+	margin:20px;
+}

@@ -11,12 +11,12 @@
 	$query = "SELECT * FROM questions_table";
 	$query2 = mysqli_query($connection, $query);
 
-	$insert_query = "INSERT INTO answers_table (question_id, victim_id, answer_content) VALUES($questionNo, $child_id, '$answer')";
+	$insert_query = "INSERT INTO answers_table (question_id, victim_id, user_id, answer_content) VALUES($questionNo, $child_id, $userid, '$answer')";
 
 	$submit_response = mysqli_query($connection, $insert_query);
 
 	if($nextQuestion > mysqli_num_rows($query2)){
-		$redirect = "Location: ../katsu-end.php";
+		$redirect = "Location: ../katsu-chat.php?question=end";
 	}
 	else{
 		$redirect = "Location: ../katsu-chat.php?question=".$nextQuestion;
@@ -32,6 +32,5 @@
 	// $submit_answer->execute();
 	
 	header($redirect);
-}
 
 ?>
