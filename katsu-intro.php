@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
 <?php
+	session_start();
 	require("php/dbconnect.php");
 	$child_id = $_GET['prof_id'];
 
-	$collect_child_info = $connection->prepare("SELECT * FROM childs_table WHERE child_id = '$child_id';");
-	$collect_child_info->bind_param("s", $child_id);
+	$_SESSION['child_id'] = $child_id;
 
+
+	$collect_child_info = $connection->prepare("SELECT child_fname, child_gender FROM childs_table WHERE child_id = ?;");
+	$collect_child_info->bind_param("s", $child_id);
 	$collect_child_info->execute();
-	$collect_child_info->store_result();
+	$collect_child_info->bind_result($child_fname, $child_gender);
+	while($result = $collect_child_info->fetch()){
+		$child_name = $child_fname;
+	}  
+
+	
 	?>
 
 	<head>
@@ -22,7 +30,10 @@
 		<div id="welcome-div">
 			<center>
 			<img id="katsu" src="images/katsu.gif">
-			<h2><?php echo $question;?></h2>
+			<h2>Hello, <?php echo $child_fname;?></h2>
+			<h4>Ako si katsu! Tara mag usap tayo.</p>
+			<br><br><br><br>
+			<a class="primary-btn" href="katsu-chat.php?question=1">Tara!</a> 
 			
 			
 			</center>
