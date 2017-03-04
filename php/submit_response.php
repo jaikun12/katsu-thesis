@@ -1,6 +1,6 @@
 <?php 
 	include('dbconnect.php');
-	include('session_check.php');
+	include('session/session_check.php');
 
 	$child_id = $_SESSION['child_id'];
 	$answer = $_POST['answer'];

@@ -1,8 +1,9 @@
-<!DOCTYPE html>
-<html>
 <?php
-	session_start();
-	require("php/dbconnect.php");
+	require_once("php/dbconnect.php");
+	require("php/session/session_check.php");
+	include("partial_view/essentials-upper-user.html");
+	include("partial_view/essentials-lower.html");
+
 	$child_id = $_GET['prof_id'];
 
 	$_SESSION['child_id'] = $child_id;
@@ -12,7 +13,7 @@
 	$collect_child_info->bind_param("s", $child_id);
 	$collect_child_info->execute();
 	$collect_child_info->bind_result($child_fname, $child_gender);
-	while($result = $collect_child_info->fetch()){
+	if($result = $collect_child_info->fetch()){
 		$child_name = $child_fname;
 	}  
 

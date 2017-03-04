@@ -1,5 +1,5 @@
 <?php
-		
+	header("../index.php");
 	include("dbconnect.php");
 
 	$query = $connection->prepare("INSERT INTO users_table (username, password, is_admin, firstname, middlename, lastname, contact_num, email, is_active, created_by) VALUES (?,?,?,?,?,?,?,?,?,?);");
