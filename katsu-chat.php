@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-<html>
 <?php
-	require("php/dbconnect.php");
-	require("php/session_check.php");
+	require_once("php/dbconnect.php");
+	require("php/session/session_check.php");
+	include("partial_view/essentials-upper-user.html");
+	include("partial_view/essentials-lower.html");
 
 	$question_no = $_GET['question'];
 

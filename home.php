@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html>
 <?php
-	require("php/dbconnect.php");
-	require("php/session_check.php");
-		?>
-
-	<head>
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/index.css">
-
-	</head>
-	<body>
+	require_once("php/dbconnect.php");
+	require("php/session/session_check.php");
+	include("partial_view/essentials-upper-user.html");
+	include("partial_view/essentials-lower.html");
+?>
 		<a href="php/logout.php"><img src="images/power-btn.png" class="logout-btn"></a>
 		<div id="welcome-div">
 			<center>

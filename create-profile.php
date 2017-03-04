@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html>
 <?php
-	require("php/dbconnect.php");
-	include("php/session_check.php");
-	?>
-	<head>
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/index.css">
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		
-	</head>
-	<body>
-		<a href="php/logout.php"><img src="images/power-btn.png" class="logout-btn"></a>
+	require_once("php/dbconnect.php");
+	require("php/session/session_check.php");
+	include("partial_view/essentials-upper-admin.html");
+	include("partial_view/essentials-lower.html");
+?>
+	<a href="php/logout.php"><img src="images/power-btn.png" class="logout-btn"></a>
 		<div id="welcome-div">
 			<center>
 
@@ -21,7 +13,7 @@
 			<div class="container" style="margin-bottom: -4em;">
 
 				<?php 	
-					include("models/success_prompts.php");
+					include("php/status.php");
 				?>
 
 			</div>

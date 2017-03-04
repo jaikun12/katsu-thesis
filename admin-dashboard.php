@@ -1,33 +1,19 @@
 <?php
-
 	require_once("php/dbconnect.php");
-	require("php/session_check.php");
-
+	require("php/session/session_check.php");
+	include("partial_view/essentials-upper-admin.html");
+	include("partial_view/essentials-lower.html");
 ?>
+<br>
+<h2 style="margin-left:1em;">Welcome <?php echo $lastname . ", " . $firstname . ".";?></h2>
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+<div style="margin-left:1em;" class="container">
+	<?php
+		include("php/status.php");
+	?>
+</div>
 
-		<h2 style="margin-left:1em;">Welcome <?php echo $lastname . ", " . $firstname . ".";?></h2>
-
-		<div style="margin-left:1em;" class="container">
-			<?php
-				include("models/success_prompts.php");
-			?>
-		</div>
-
-		<title>Admin Dashboard</title>
-
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="css/admin.css">
-	</head>
-	<body>
-	<a href="php/logout.php"><img src="images/power-btn.png" class="logout-btn"></a>
+<a href="php/logout.php"><img src="images/power-btn.png" class="logout-btn"></a>
 	<div class="modal fade" id="user-modal" tabindex="-1" role="dialog">
  		 <div class="modal-dialog" role="document">
     		<div class="modal-content">
@@ -89,7 +75,7 @@
 </div>
 
 	<div class="container" id="users-table">
-		<h3>USERS TABLE OUTPUT</h3>
+		<h3>User List</h3>
 		<table class="table table-hover" style="max-width: 90% !important;">
 			<thead>
 				<tr>
@@ -133,7 +119,7 @@
 	</div>
 
 	<div class="container" id="questions-table">
-		<h3>QUESTIONS TABLE OUTPUT</h3>
+		<h3>Questions</h3>
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -177,7 +163,7 @@
 	</div>
 
 	<div class="container" id="questions-table">
-		<h3>ANSWERS TABLE OUTPUT</h3>
+		<h3>Answers</h3>
 		<table class="table table-hover">
 			<thead>
 				<tr>
