@@ -1,7 +1,7 @@
 <?php
 
-	include("../dbconnect.php");
-	include("../session_check.php");
+	include("dbconnect.php");
+	include("session_check.php");
 
 	$prof_id = $_POST['profile_id'];
 	$prof_pw = $_POST['password'];
@@ -17,10 +17,10 @@
 	$result_count = $check_account->num_rows;
 
 	if($result_count != 0){
-		header("Location: ../../katsu-intro.php?prof_id=".$prof_id);
+		header("Location: ../katsu-intro.php?prof_id=".$prof_id);
 	}
 	else{
-		header("Location: ../../katsu-start.php?error=2");
+		header("Location: ../katsu-start.php?error=2");
 	}
 	
  ?>
