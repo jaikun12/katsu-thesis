@@ -1,5 +1,5 @@
-<?php
-	require_once("php/dbconnect.php");
+_r<?php
+	require_once("php/dbconnect_r.php");
 	require("php/session/session_check.php");
 	include("partial_view/essentials-upper-user.html");
 	include("partial_view/essentials-lower.html");

@@ -1,6 +1,6 @@
 <?php
-	require_once("php/dbconnect.php");
-	require("php/session/session_init.php");
+	require_once("php/dbconnect_r.php");
+	require("php/session_init.php");
 	include("partial_view/essentials-upper-user.html");
 	include("partial_view/essentials-lower.html");
 ?>

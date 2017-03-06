@@ -16,7 +16,7 @@
 	$contact_num = $_POST['contact_num'];
 	$email = $_POST['email'];
 
-	$encrypted = crypt($password, '$!@#$%ChilDPorN');
+	$encrypted = crypt($password, '!@#$%ChilDPorN');
 
 	//debug
 	echo "<br> Username: " . $username;
