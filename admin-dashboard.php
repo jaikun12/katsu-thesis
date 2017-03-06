@@ -88,7 +88,7 @@
 			</thead>
 			<tbody>
 				<?php
-					$query = mysqli_query($connection, "SELECT * FROM users_table;");
+					$query = mysqli_query($connection, "SELECT * FROM katsu_users_table;");
 
 					while($r = mysqli_fetch_array($query)){
 						$username = $r['username'];
@@ -132,7 +132,7 @@
 			</thead>
 			<tbody>
 				<?php
-					$query = mysqli_query($connection, "SELECT * FROM questions_table;");
+					$query = mysqli_query($connection, "SELECT * FROM katsu_questions_table;");
 
 					while($r = mysqli_fetch_array($query)){
 						$question_id = $r['question_id'];
@@ -174,12 +174,12 @@
 			</thead>
 			<tbody>
 				<?php
-					$query = mysqli_query($connection, "SELECT * FROM answers_table;");
+					$query = mysqli_query($connection, "SELECT * FROM katsu_answers_table;");
 
 					while($r = mysqli_fetch_array($query)){
 						$question_id = $r['question_id'];
 
-						$get_question = mysqli_query($connection, "SELECT question_content FROM questions_table WHERE question_id = '$question_id'");
+						$get_question = mysqli_query($connection, "SELECT question_content FROM katsu_questions_table WHERE question_id = '$question_id'");
 
 						$answer_content = $r['answer_content'];
 						$date_answered = $r['date_answered'];

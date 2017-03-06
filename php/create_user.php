@@ -31,11 +31,11 @@
 
 	// $insert_user = "INSERT INTO users_table (username, password, is_admin, firstname, middlename, lastname, email, is_active) VALUES ('$username', '$password', '$is_admin', '$firstname', '$middlename', '$lastname', '$contact_num', '$email', '1';)";
 
-	$check_db = mysqli_query($connection, "SELECT * FROM users_table WHERE username = '$username';");
+	$check_db = mysqli_query($connection, "SELECT * FROM katsu_users_table WHERE username = '$username';");
 
 	if(mysqli_num_rows($check_db)==0){ // if username is not taken
 
-		$insert_user = "INSERT INTO users_table (username, password, is_admin, firstname, middlename, lastname, contact_num, email, is_active) VALUES ('$username', '$encrypted', '$is_admin', '$firstname', '$middlename', '$lastname', '$contact_num', '$email', 1);";
+		$insert_user = "INSERT INTO katsu_users_table (username, password, is_admin, firstname, middlename, lastname, contact_num, email, is_active) VALUES ('$username', '$encrypted', '$is_admin', '$firstname', '$middlename', '$lastname', '$contact_num', '$email', 1);";
 
 		$sql = mysqli_query($connection, $insert_user);
 

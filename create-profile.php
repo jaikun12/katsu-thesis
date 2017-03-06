@@ -1,7 +1,7 @@
 <?php
 	require_once("php/dbconnect.php");
 	require("php/session/session_check.php");
-	include("partial_view/essentials-upper-admin.html");
+	include("partial_view/essentials-upper-user.html");
 	include("partial_view/essentials-lower.html");
 ?>
 	<a href="php/logout.php"><img src="images/power-btn.png" class="logout-btn"></a>
@@ -38,13 +38,6 @@
 		</form>
 
 
-		<div class="container">
-		<?php 
-			include("models/error_prompts.php");
-		 ?>
-		</div>
-
-
 		</div>
 		<div class="container" id="childs-table">
 		<h3>CHILDS TABLE OUTPUT</h3>
@@ -61,7 +54,7 @@
 			</thead>
 			<tbody>
 				<?php
-					$query = mysqli_query($connection, "SELECT * FROM childs_table;");
+					$query = mysqli_query($connection, "SELECT * FROM katsu_childs_table;");
 
 					while($r = mysqli_fetch_array($query)){
 						$firstname = $r['child_fname'];

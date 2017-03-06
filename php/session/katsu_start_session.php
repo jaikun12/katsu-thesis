@@ -8,7 +8,7 @@
 
 	$crypt_pass = crypt($prof_pw, "$!@#$%ChilDPorN");
 
-	$check_account = $connection->prepare("SELECT * FROM childs_table WHERE child_id = ? AND child_pword = ?;");
+	$check_account = $connection->prepare("SELECT * FROM katsu_childs_table WHERE child_id = ? AND child_pword = ?;");
 	$check_account->bind_param("ss", $prof_id, $crypt_pass);
 
 	$check_account->execute();

@@ -8,10 +8,10 @@
 
 	$nextQuestion = $questionNo + 1;
 
-	$query = "SELECT * FROM questions_table";
+	$query = "SELECT * FROM katsu_questions_table";
 	$query2 = mysqli_query($connection, $query);
 
-	$insert_query = "INSERT INTO answers_table (question_id, victim_id, user_id, answer_content) VALUES($questionNo, $child_id, $userid, '$answer')";
+	$insert_query = "INSERT INTO katsu_answers_table (question_id, victim_id, user_id, answer_content) VALUES($questionNo, $child_id, $userid, '$answer')";
 
 	$submit_response = mysqli_query($connection, $insert_query);
 

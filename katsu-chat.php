@@ -6,7 +6,7 @@
 
 	$question_no = $_GET['question'];
 
-	$query = ("SELECT question_content FROM questions_table WHERE question_id = '$question_no'");
+	$query = ("SELECT question_content FROM katsu_questions_table WHERE question_id = '$question_no'");
 
 	$query2 = mysqli_query($connection, $query);
 

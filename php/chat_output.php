@@ -10,7 +10,7 @@
 
 				<h2>Salamat sa usapan natin. Sa uulitin ';
 
-			$get_child = mysqli_query($connection, "SELECT * FROM childs_table WHERE child_id = $child_id;");
+			$get_child = mysqli_query($connection, "SELECT * FROM katsu_childs_table WHERE child_id = $child_id;");
 
 			if($r=mysqli_fetch_array($get_child)){
 				$fname = $r['child_fname'];

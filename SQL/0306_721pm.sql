@@ -85,7 +85,8 @@ CREATE TABLE `katsu_childs_table` (
   `child_prov` varchar(45) NOT NULL,
   `child_city` varchar(45) NOT NULL,
   `child_pword` varchar(45) NOT NULL,
-  `time_created` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP
+  `time_created` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP,
+  `child_status` varchar(45) NOT NULL DEFAULT 'Pending'
 ) ;
 
 --
@@ -167,7 +168,8 @@ CREATE TABLE `katsu_users_table` (
   `contact_num` varchar(15) NOT NULL,
   `email` varchar(45) NOT NULL,
   `is_active` int(2) NOT NULL,
-  `time_created` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP
+  `time_created` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP,
+  `created_by` varchar(45) NOT NULL DEFAULT 'super admin'
 ) ;
 
 --
@@ -185,9 +187,20 @@ INSERT INTO `katsu_users_table` (`user_id`, `username`, `password`, `is_admin`, 
 (19, 'katsu_inactive', '!@D5mroWvawd6', 1, 'Shi Jin', 'NA', 'Yoo', '092323231', 'sample@gmail.com', 0, '2017-03-03 02:38:54.993716', 'super admin'),
 (20, 'boazcstrike', '$!RwKbHxrwnPw', 1, 'Boaz Sze', 'Yutatco', 'Sze', '09171231234', 'sample@gmail.com', 1, '2017-03-03 05:15:33.832610', '');
 
---
--- AUTO_INCREMENT for dumped tables
---
+ALTER TABLE `katsu_answers_table`
+  ADD PRIMARY KEY(`answer_id`);
+
+ALTER TABLE `katsu_childs_table`
+  ADD PRIMARY KEY(`child_id`);
+
+ALTER TABLE `katsu_login_logs_table`
+  ADD PRIMARY KEY(`login_log_id`);
+
+ALTER TABLE `katsu_questions_table`
+  ADD PRIMARY KEY(`question_id`);
+
+ALTER TABLE `katsu_users_table`
+  ADD PRIMARY KEY(`user_id`);
 
 --
 -- AUTO_INCREMENT for table `katsu_answers_table`

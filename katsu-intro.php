@@ -9,7 +9,7 @@
 	$_SESSION['child_id'] = $child_id;
 
 
-	$collect_child_info = $connection->prepare("SELECT child_fname, child_gender FROM childs_table WHERE child_id = ?;");
+	$collect_child_info = $connection->prepare("SELECT child_fname, child_gender FROM katsu_childs_table WHERE child_id = ?;");
 	$collect_child_info->bind_param("s", $child_id);
 	$collect_child_info->execute();
 	$collect_child_info->bind_result($child_fname, $child_gender);

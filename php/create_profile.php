@@ -4,14 +4,14 @@
 <?php
 
 	include("dbconnect.php");
-	include("session_check.php");
+	include("session/session_check.php");
 
 	//preparation
-	$check_child_table = $connection->prepare("SELECT * FROM childs_table WHERE child_fname = ? AND child_mname = ? AND child_lname = ?;");
+	$check_child_table = $connection->prepare("SELECT * FROM katsu_childs_table WHERE child_fname = ? AND child_mname = ? AND child_lname = ?;");
 
 	$check_child_table->bind_param("sss", $child_fname,$child_mname,$child_lname);
 
-	$insert_query = $connection->prepare("INSERT INTO childs_table (user_id, child_fname, child_mname, child_lname, child_age, child_gender, child_prov, child_city, child_pword) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	$insert_query = $connection->prepare("INSERT INTO katsu_childs_table (user_id, child_fname, child_mname, child_lname, child_age, child_gender, child_prov, child_city, child_pword) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 	$insert_query->bind_param("isssissss",$userid,$child_fname,$child_mname,$child_lname,$child_age,$child_gender,$child_prov,$child_city,$child_pword);
 
@@ -55,7 +55,7 @@
 				echo "$insert_query error!" . mysqli_error($connection);
 			}else{
 				echo "Child credentials created.";
-				header("Location: ../create-profile.php?success=5");
+				// header("Location: ../create-profile.php?success=5");
 			}
 		}else{
 			echo "Child credentials already exists.";

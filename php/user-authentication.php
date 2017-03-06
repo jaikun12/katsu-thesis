@@ -7,7 +7,7 @@
 	if(!$username || !$password){
 		header("Location: ../index.php?error=1");
 	}else{
-		$checkdb = $connection->prepare("SELECT user_id, username, is_admin, firstname, lastname, is_active  FROM users_table WHERE username = ? AND password = ?;");
+		$checkdb = $connection->prepare("SELECT user_id, username, is_admin, firstname, lastname, is_active  FROM katsu_users_table WHERE username = ? AND password = ?;");
 		$checkdb->bind_param("ss",$username,$init_pass);
 
 		$init_pass = crypt($password, "!@#$%ChilDPorN");
