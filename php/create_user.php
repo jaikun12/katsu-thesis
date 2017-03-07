@@ -6,6 +6,10 @@
 <?php
 
 	include("dbconnect.php");
+	include("session_check.php");
+
+	$insert_user = $connection->prepare("INSERT INTO katsu_users_table (username, password, is_admin, firstname, middlename, lastname, contact_num, email, is_active, created_by) VALUES (?,?,?,?,?,?,?,?,?,?);");
+	$insert_user->bind_param("ssisssssis",$username, $encrypted, $is_admin, $firstname, $middlename, $lastname, $contact_num,$email,$one,$created_by);
 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
@@ -15,6 +19,8 @@
 	$lastname = $_POST['lastname'];
 	$contact_num = $_POST['contact_num'];
 	$email = $_POST['email'];
+	$created_by = $_SESSION['username'];
+	$one = 1;
 
 	$encrypted = crypt($password, '!@#$%ChilDPorN');
 
@@ -28,18 +34,15 @@
 	echo "<br> lastname: " . $lastname;
 	echo "<br> contact_num: " . $contact_num;
 	echo "<br> email: " . $email;
-
-	// $insert_user = "INSERT INTO users_table (username, password, is_admin, firstname, middlename, lastname, email, is_active) VALUES ('$username', '$password', '$is_admin', '$firstname', '$middlename', '$lastname', '$contact_num', '$email', '1';)";
+	echo "<br> created_by: " . $created_by;
 
 	$check_db = mysqli_query($connection, "SELECT * FROM katsu_users_table WHERE username = '$username';");
 
 	if(mysqli_num_rows($check_db)==0){ // if username is not taken
 
-		$insert_user = "INSERT INTO katsu_users_table (username, password, is_admin, firstname, middlename, lastname, contact_num, email, is_active) VALUES ('$username', '$encrypted', '$is_admin', '$firstname', '$middlename', '$lastname', '$contact_num', '$email', 1);";
+		$insert_user->execute();
 
-		$sql = mysqli_query($connection, $insert_user);
-
-			if(!$sql){
+			if(!$insert_user){
 		    	echo "<br><br>Check code. <br>" . mysqli_error($connection);
 		    }else{
 		    	//debug here

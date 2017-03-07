@@ -46,6 +46,15 @@
 		elseif($s == 5){
 			echo '<p class="success-msg">Child credentials added. </p>';
 		}
+		elseif($s == 6){
+			echo '<p class="success-msg">User disabled. </p>';
+		}
+		elseif($s == 7){
+			echo '<p class="success-msg">Question disabled. </p>';
+		}
+		elseif($s == 9){
+			echo '<p class="success-msg">Question added. </p>';
+		}
 		else{
 
 		}
