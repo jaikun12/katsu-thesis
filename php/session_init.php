@@ -5,7 +5,7 @@
 
 	if(isset($_SESSION['user_id']) && isset($_SESSION['username'])){
 
-		$userid = $_SESSION['userid'];
+		$userid = $_SESSION['user_id'];
 		$username = $_SESSION['username'];
 		$firstname = $_SESSION['firstname'];
 		$lastname = $_SESSION['lastname'];
