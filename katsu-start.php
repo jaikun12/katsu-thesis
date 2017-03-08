@@ -1,6 +1,6 @@
 <?php
 	require_once("php/dbconnect_r.php");
-	require("php/session/session_check.php");
+	require("php/session_check.php");
 	include("partial_view/essentials-upper-user.html");
 	include("partial_view/essentials-lower.html");
 ?>
@@ -19,7 +19,7 @@
 
 			<center>
 
-				<form action="php/session/katsu_start_session.php" method="POST">
+				<form action="php/katsu_start_session.php" method="POST">
 					<input type="text" name="profile_id" placeholder="Child Profile ID">
 					<input type="password" name="password" placeholder="Child Session Password">
 					<button type="submit" class="primary-btn">Start Session</button>
