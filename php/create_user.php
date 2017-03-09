@@ -38,8 +38,7 @@
 
 	$check_db = mysqli_query($connection, "SELECT * FROM katsu_users_table WHERE username = '$username' AND is_active = 1;");
 
-	while($r=mysqli_fetch_array($check_db)){
-		if(mysqli_num_rows($check_db)==0){ // if username is not taken
+	if(mysqli_num_rows($check_db)==0){ // if username is not taken
 
 		$insert_user->execute();
 
@@ -54,8 +53,6 @@
 
 		}else{
 			echo "The username: " . $username . " already exists.";
-		}
-		
 	}
 
     mysqli_close($connection);
