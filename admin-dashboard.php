@@ -175,7 +175,7 @@
 </div>
 
 
-<div class="container" id="questions-table">
+<div class="container" id="questions-table" style="height:500px; overflow:auto;">
 	<h3>Answers</h3>
 
 	<?php include("partial_view/answers_table.php"); ?>
