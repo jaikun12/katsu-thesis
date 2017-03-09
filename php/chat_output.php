@@ -27,7 +27,21 @@
 			';
 
 		}else{
-			echo '
+			if(!isset($question)){
+				$check_end = $check_end + 1;
+				$query = "SELECT * FROM katsu_questions_table WHERE question_id = $check_end;";
+				$check_if_end = mysqli_query($connection,$query);
+				$row_count = mysqli_num_rows($check_if_end);
+				if($row_count != 0){
+					header("Location: ../katsu-chat.php?question=$check_end");
+				}
+				else{
+					header("Location: katsu-chat.php?question=end");
+				}
+				
+			}
+			else{
+				echo '
 			<img id="katsu" src="images/katsu.gif">
 				<h2>' . $question . '</h2>
 				
@@ -41,6 +55,8 @@
 			</div>
 
 			';
+			}
+			
 		}
 
 		?>

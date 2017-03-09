@@ -11,9 +11,17 @@
 	$insert_question = $connection->prepare("INSERT INTO katsu_questions_table (user_id, question_content) VALUES (?,?);");
 	$insert_question->bind_param("is",$user_id,$question_content);
 
+	if(!isset($_POST['question_content']) || $_POST['question_content'] == " "){
+		header("Location: ../admin-dashboard.php?error=1");
+	}
+
+	else{
+
+
+
 	$question_content = $_POST['question_content'];
 
-	$encrypted = crypt($password, '!@#$%ChilDPorN');
+	// $encrypted = crypt($password, '!@#$%ChilDPorN');
 
 	//debug
 	echo "<br> user_id: " . $user_id;
@@ -33,9 +41,9 @@
 		    }
 
 	}else{
-		echo "That question already exists.";
+		header("Location: ../admin-dashboard.php?error=7");
 	}
-
+}
     mysqli_close($connection);
 
 ?>

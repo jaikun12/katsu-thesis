@@ -22,6 +22,9 @@
 		elseif($error_code == 6){
 			echo '<p class="error-msg">Please enter important child credentials. (At least a first name and last name provided.)</p>';
 		}
+		elseif($error_code == 7){
+			echo '<p class="error-msg">A similar question exists or you entered a null value</p>';
+		}
 		else{
 
 		}
