@@ -8,24 +8,25 @@
 			include("dbconnect.php");
 			include("session_check.php");
 			
-			$alter_user_query = $connection->prepare("UPDATE katsu_users_table SET is_active = ? WHERE username = ?;");
-			$alter_user_query->bind_param("is", $change_user_status, $username);
+			$update_user_query = $connection->prepare("UPDATE katsu_users_table SET is_active = ? WHERE user_id = ?;");
+			$update_user_query->bind_param("is", $change_user_status, $user_id);
 
-			$username = $_POST['username'];
+			$user_id = $_POST['user_id'];
 			$change_user_status = 0;
 
 			//debug
-			echo "<br> Username: " . $username;
+			echo "<br> User ID: " . $user_id;
 
-			if(!$alter_user_query){
+			if(!$update_user_query){
 				echo "<br><br>Check code. <br>" . mysqli_error($connection);
 			}else{
 				//debug here
-				$alter_user_query->execute();
+				$update_user_query->execute();
+				echo mysqli_error($connection);
 				header("Location: ../admin-dashboard.php?success=6");
 			}
 
-			$alter_user_query->close();
+			$update_user_query->close();
 			mysqli_close($connection);
 
 		?>

@@ -49,29 +49,32 @@
 	if(!$child_fname || !$child_lname){
 		header("Location: ../create-profile.php?error=6");
 	}else{
-		if($row_count==0){
-			$insert_query->execute();
+		$query = mysqli_query("SELECT * FROM katsu_users_table;");
+		while($r=mysqli_fetch_array($query)){
+			if($row_count==0||$r['ist_active']==0){
 
-			if (!$insert_query){
-				echo "$insert_query error!" . mysqli_error($connection);
-			}else{
-				
-				$select_child->execute();
-				$select_child->store_result();
+				$insert_query->execute();
 
-				if($r=$select_child->fetch()){
-					$child_id_placeholder = $r['child_id'];
+				if (!$insert_query){
+					echo "$insert_query error!" . mysqli_error($connection);
 				}else{
+					
+					$select_child->execute();
+					$select_child->store_result();
 
+					if($r=$select_child->fetch()){
+						$child_id_placeholder = $r['child_id'];
+					}else{
+					}
+
+					// echo "Child credentials created.";
+					header("Location: ../create-profile.php?success=5&child_id=".$child_id_placeholder);
 				}
-
-				// echo "Child credentials created.";
-				header("Location: ../create-profile.php?success=5&child_id=".$child_id_placeholder);
+			}else{
+				echo "Child credentials already exists.";
+				header("Location: ../create-profile.php?error=5");
+				
 			}
-		}else{
-			echo "Child credentials already exists.";
-			header("Location: ../create-profile.php?error=5");
-			
 		}
 	}
 	
