@@ -28,60 +28,104 @@
 			<input type="radio" name="child_gender" id="male" value="male" style="display:none;"></label>
 			<label for="female" id="female_label" onClick="selectedRadio2()" style="font-size:0.7em; margin:20px; padding:10px; border-radius:30px;">Female</label>
 			<input type="radio" name="child_gender" id="female" value="female" style="display:none;">
-			<input type="text" name="child_prov" placeholder="Child's Province">
+			<select class="form-control" id="province" name="child_prov">
+				<option disabled selected>Choose province</option>
+				<option value="abra">Abra</option>
+				<option value="agusan-del-norte">Agusan Del Norte</option>
+				<option value="agusan-del-sur">Agusan Del Sur</option>
+				<option value="aklan">Aklan</option>
+				<option value="albay">Albay</option>
+				<option value="antique">Antique</option>
+				<option value="apayao">Apayao</option>
+				<option value="aurora">Aurora</option>
+				<option value="basilan">Basilan</option>
+				<option value="bataan">Bataan</option>
+				<option value="batanes">Batanes</option>
+				<option value="batangas">Batangas</option>
+				<option value="benguet">Benguet</option>
+				<option value="biliran">Biliran</option>
+				<option value="bohol">Bohol</option>
+				<option value="bukidnon">Bukidnon</option>
+				<option value="bulacan">Bulacan</option>
+				<option value="cagayan">Cagayan</option>
+				<option value="camarines-norte">Camarines Norte</option>
+				<option value="camarines-sur">Camarines Sur</option>
+				<option value="camiguin">Camiguin</option>
+				<option value="capiz">Capiz</option>
+				<option value="catanduanes">Catanduanes</option>
+				<option value="cavite">Cavite</option>
+				<option value="cebu">Cebu</option>
+				<option value="compostela-valley">Compostela Valley</option>
+				<option value="cotobato">Cotobato</option>
+				<option value="davao-del-norte">Davao Del Norte</option>
+				<option value="davao-del-sur">Davao Del Sur</option>
+				<option value="davao-oriental">Davao Oriental</option>
+				<option value="dinagat-islands">Dinagat Islands</option>
+				<option value="eastern-samar">Eastern Samar</option>
+				<option value="guimaras">Guimaras</option>
+				<option value="ifugao">Ifugao</option>
+				<option value="ilocos-norte">Ilocos Norte</option>
+				<option value="ilocos-sur">Ilocos Sur</option>
+				<option value="iloilo">Iloilo</option>
+				<option value="isabela">Isabela</option>
+				<option value="kalinga">Kalinga</option>
+				<option value="la-union">La Union</option>
+				<option value="laguna">Laguna</option>
+				<option value="lanao-del-norte">Lanao Del Norte</option>
+				<option value="lanao-del-sur">Lanao Del Sur</option>
+				<option value="leyte">Leyte</option>
+				<option value="maguindanao">Maguindanao</option>
+				<option value="marinduque">Marinduque</option>
+				<option value="masbate">Masbate</option>
+				<option value="metro-manila">Metro Manila</option>
+				<option value="mindoro-occidental">Mindoro Occidental</option>
+				<option value="mindoro-oriental">Mindoro Oriental</option>
+				<option value="misamis-occidental">Misamis Occidental</option>
+				<option value="misamis-oriental">Misamis Oriental</option>
+				<option value="mountain-province">Mountain Province</option>
+				<option value="negros-occidental">Negros Occidental</option>
+				<option value="negros-oriental">Negros Oriental</option>
+				<option value="northern-samar">Northern Samar</option>
+				<option value="nueva-ecija">Nueva Ecija</option>
+				<option value="nueva-viscaya">Nueva Vizcaya</option>
+				<option value="palawan">Palawan</option>
+				<option value="pampanga">Pampanga</option>
+				<option value="pangasinan">Pangasinan</option>
+				<option value="quezon">Quezon</option>
+				<option value="quirino">Quirino</option>
+				<option value="rizal">Rizal</option>
+				<option value="romblon">Romblon</option>
+				<option value="samar">Samar</option>
+				<option value="sarangani">Sarangani</option>
+				<option value="siquijor">Siquijor</option>
+				<option value="sorosgon">Sorsogon</option>
+				<option value="south-cotobato">South Cotobato</option>
+				<option value="southern-leyte">Southern Leyte</option>
+				<option value="sultan-kudarat">Sultan Kudarat</option>
+				<option value="sulu">Sulu</option>
+				<option value="surdelsur">Surigao Del Sur</option>
+				<option value="surigao-del-norte">Surigao Del Norte</option>
+				<option value="tarlac">Tarlac</option>
+				<option value="tawitawi">Tawi-tawi</option>
+				<option value="zambales">Zambales</option>
+				<option value="zamboanga-del-norte">Zamboanga Del Norte</option>
+				<option value="zamboanga-del-sur">Zamboanga Del Sur</option>
+				<option value="zamboanga-sibugay">Zamboanga Sibugay</option>
+
+
+			</select>
 			<input type="text" name="child_city" placeholder="Child's City">
 			<input type="password" name="child_pword" placeholder="Child's Session Password">
 			<button type="submit" class="primary-btn">Submit</button>
 			
 			<a href="home.php" class="link">Cancel</a>
+
 			</center>
 		</form>
 
 
 		</div>
-		<div class="container" id="childs-table">
-		<h3>CHILDS TABLE OUTPUT</h3>
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Age</th>
-					<th>Gender</th>
-					<th>Province</th>
-					<th>City</th>
-					<th>Time Created</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php
-					$query = mysqli_query($connection, "SELECT * FROM katsu_childs_table;");
-
-					while($r = mysqli_fetch_array($query)){
-						$firstname = $r['child_fname'];
-						$middlename = $r['child_mname'];
-						$lastname = $r['child_lname'];
-						$name = $lastname . ", " . $firstname . " " . $middlename;
-						$age = $r['child_age'];
-						$gender = $r['child_gender'];
-						$province = $r['child_prov'];
-						$city = $r['child_city'];
-						$time_created = $r['time_created'];
-
-						echo "
-						<tr>
-							<td>" . $name . "</td>
-							<td>" . $gender . "</td>
-							<td>" . $age . "</td>
-							<td>" . $province . "</td>
-							<td>" . $city . "</td>
-							<td>" . $time_created . "</td>
-						</tr>";
-					}
-
-				?>
-			</tbody>
-		</table>
-	</div>
+		
 	</body>
 	<script>
 		function selectedRadio1(){
