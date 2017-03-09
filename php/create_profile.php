@@ -22,7 +22,8 @@
 	$child_lname = $_POST['child_lname'];
 	$child_age = $_POST['child_age'];
 	$child_gender = $_POST['child_gender'];
-	$child_prov = $_POST['child_prov'];
+	$child_prov = strtolower($_POST['child_prov']);
+	$child_prov = preg_replace('/\s+/', '-', $child_prov);
 	$child_city = $_POST['child_city'];
 	$child_pword1 = $_POST['child_pword'];
 	$child_pword = crypt($child_pword1, '$!@#$%ChilDPorN');
