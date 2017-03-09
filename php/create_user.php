@@ -36,21 +36,23 @@
 	echo "<br> email: " . $email;
 	echo "<br> created_by: " . $created_by;
 
-	$check_db = mysqli_query($connection, "SELECT * FROM katsu_users_table WHERE username = '$username';");
+	$check_db = mysqli_query($connection, "SELECT * FROM katsu_users_table WHERE username = '$username' AND is_active = 1;");
 
 	if(mysqli_num_rows($check_db)==0){ // if username is not taken
 
 		$insert_user->execute();
 
 			if(!$insert_user){
-		    	echo "<br><br>Check code. <br>" . mysqli_error($connection);
-		    }else{
-		    	//debug here
-		    	header("Location: ../admin-dashboard.php?success=1");
-		    }
+			   	echo "<br><br>Check code. <br>" . mysqli_error($connection);
+			   }else{
+			    //debug here
+			   	header("Location: ../admin-dashboard.php?success=1");		
 
-	}else{
-		echo "The username: " . $username . " already exists.";
+			}
+			echo mysqli_error($connection);
+
+		}else{
+			echo "The username: " . $username . " already exists.";
 	}
 
     mysqli_close($connection);

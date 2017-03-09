@@ -8,7 +8,7 @@
 	</thead>
 	<tbody>
 		<?php
-			$query = mysqli_query($connection, "SELECT * FROM katsu_questions_table ORDER BY is_active DESC;");
+			$query = mysqli_query($connection, "SELECT * FROM katsu_questions_table WHERE is_active = 1;");
 			while($r = mysqli_fetch_array($query)){
 				$question_id = $r['question_id'];
 				$question_content = $r['question_content'];

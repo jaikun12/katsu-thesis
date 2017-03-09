@@ -48,15 +48,15 @@
 								</div>
 								
 								<label for="">First Name</label>
-								<input name="firstname" type="text" class="form-control" id="" placeholder="Input username" required>
+								<input name="firstname" type="text" class="form-control" id="" placeholder="Input firstname" required>
 								<label for="">Middle Name</label>
-								<input name="middlename" type="text" class="form-control" id="" placeholder="Input username">
+								<input name="middlename" type="text" class="form-control" id="" placeholder="Input middlename">
 								<label for="">Last Name</label>
-								<input name="lastname" type="text" class="form-control" id="" placeholder="Input username" required>
+								<input name="lastname" type="text" class="form-control" id="" placeholder="Input lastname" required>
 								<label for="">Contact Number</label>
-								<input name="contact_num" type="text" class="form-control" id="" placeholder="Input username" required>
+								<input name="contact_num" type="text" class="form-control" id="" placeholder="Input contact number" required>
 								<label for="">E-mail</label>
-								<input name="email" type="text" class="form-control" id="" placeholder="Input username" required>
+								<input name="email" type="text" class="form-control" id="" placeholder="Input email" required>
 							</div>
 							
 							<button type="submit" class="btn btn-primary">Add User</button>
@@ -80,7 +80,7 @@
 						<form action="php/disable_user.php" method="POST" role="form">
 							<legend>Disable a user or an admin</legend>
 
-							<?php include("partial_view/list_users_option.php"); ?> <br><br>
+							<?php include("partial_view/disabled_users_option.php"); ?> <br><br>
 
 							<button type="submit" class="btn btn-primary">Disable User</button>
 
@@ -93,7 +93,7 @@
 		</div>
 	</div>
 
-	<button class="btn-primary" data-toggle="modal" data-target="#disableduser-modal">Disabled Users</button>
+	<!-- <button class="btn-primary" data-toggle="modal" data-target="#disableduser-modal">Disabled Users</button>
 
 	<div class="modal fade" id="disableduser-modal" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
@@ -104,8 +104,6 @@
 						<form action="php/disable_user.php" method="POST" role="form">
 							<legend>Disable a user or an admin</legend>
 
-							<?php include("partial_view/list_disabled_users.php"); ?> <br><br>
-
 							<button type="submit" class="btn btn-primary">Disabled Users</button>
 
 						</form>
@@ -115,7 +113,7 @@
 				
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 </div>
 
@@ -177,7 +175,7 @@
 </div>
 
 
-<div class="container" id="questions-table">
+<div class="container" id="questions-table" style="height:500px; overflow:auto;">
 	<h3>Answers</h3>
 
 	<?php include("partial_view/answers_table.php"); ?>
