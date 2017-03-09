@@ -173,8 +173,49 @@
 	</div>
 
 </div>
+<br><br>
 
+<div class="container" id="questions-table">
+	<h3>Child Table</h3>
+	<div class="container" style="height:250px; overflow:auto;">
+	<?php include("partial_view/childs_table.php"); ?>
+	</div>
+	
 
+	<button class="btn-primary" data-toggle="modal" data-target="#confirm-modal">Confirm a Victim</button>
+
+	<div class="modal fade" id="confirm-modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				
+				<div class="modal-body">
+
+					<form action="php/disable_question.php" method="POST" role="form">
+						<legend>Confirm Child Pornography Victim</legend>
+						<select name="question_id">
+						<?php
+							$query = mysqli_query($connection, "SELECT * FROM katsu_childs_table WHERE child_status = 'Pending';");
+							while($r = mysqli_fetch_array($query)){
+								$child_id = $r['question_id'];
+								$child_fname = $r['child_fname'];
+								$child_mname = $r['child_mname'];
+								$child_lname = $r['child_lname'];
+								$name = $child_lname . ", " . $child_fname . " ". $child_mname;
+								echo "<option value=" . $child_id . ">" . $name . "</option>";
+								}
+						?>
+					</select>						<br><br>
+						
+						<button type="submit" class="btn btn-primary">Confirm Child Pornography Victim</button>
+					</form>
+
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<br>
 <div class="container" id="questions-table" style="height:500px; overflow:auto;">
 	<h3>Answers</h3>
 
