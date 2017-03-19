@@ -132,7 +132,7 @@
 		<thead>
 		<tbody>
 			<?php
-				$get_table = mysqli_query($connection, "SELECT * FROM katsu_question_sets_table");
+				$get_table = mysqli_query($connection, "SELECT * FROM katsu_question_sets_table WHERE is_active = 1");
 				while($result = mysqli_fetch_array($get_table)){
 					$set_id = $result['set_id'];
 					$set_name = $result['set_name'];
@@ -153,8 +153,6 @@
 
 	<button class="btn-primary" data-toggle="modal" data-target="#create-question-set-modal">Create New Set</button>
 
-
-
 	<div class="modal fade" id="create-question-set-modal" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -170,6 +168,69 @@
 							<button type="submit" class="btn btn-primary">Create Question Set</button>
 
 						</form>
+
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<button class="btn-primary" data-toggle="modal" data-target="#disable-question-set-modal">Disable Question Set</button>
+
+	<div class="modal fade" id="disable-question-set-modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div class="container-fluid">
+						<h4>Select the question</h4>
+						<select name="question_id">
+			<?php
+				$query = "SELECT * FROM katsu_question_sets_table WHERE is_active = 1;";
+				$get_question_sets = mysqli_query($connection, $query);
+				while($result = mysqli_fetch_array($get_question_sets)){
+					$set_id = $result['set_id'];
+					$set_name = $result['set_name'];
+
+					echo '
+						<option value="'.$set_id.'">' . $set_name . '</option>
+					';
+				}
+
+
+			?>
+						</select>
+
+						<h3>Disabled Question Sets</h3>
+						<table class="table table-hover" style="width:80%;">
+		<thead>
+			<tr>
+				<th>Question Set ID</th>
+				<th>Question Set Name</th>
+				<th>Actions</th>
+			</tr>
+		<thead>
+		<tbody>
+			<?php
+				$get_table = mysqli_query($connection, "SELECT * FROM katsu_question_sets_table WHERE is_active = 0");
+				while($result = mysqli_fetch_array($get_table)){
+					$set_id = $result['set_id'];
+					$set_name = $result['set_name'];
+
+					echo "
+							<tr>
+							<td>".$set_id."</td>
+							<td>".$set_name."</td>
+							<td><a href='question-set-details.php?id=".$set_id."' class='btn btn-primary'>Details</a>
+							<tr>
+						";
+				}
+
+
+			?>
+		</tbody>
+	</table>
+
 
 					</div>
 				</div>

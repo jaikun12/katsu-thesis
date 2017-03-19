@@ -28,6 +28,12 @@
 		elseif($error_code == 8){
 			echo '<p class="error-msg">You have entered an existing sequence, please enter another non-existing sequence number.</p>';
 		}
+		elseif($error_code == 9){
+			echo '<p class="error-msg">A similar question set exists and is active at the moment.</p>';
+		}
+		elseif($error_code == 10){
+			echo '<p class="error-msg">You have entered an existing sequence, please enter another non-existing sequence number.</p>';
+		}
 		else{
 
 		}
@@ -59,6 +65,9 @@
 			echo '<p class="success-msg">Question disabled. </p>';
 		}
 		elseif($s == 9){
+			echo '<p class="success-msg">Question added. </p>';
+		}
+		elseif($s == 10){
 			echo '<p class="success-msg">Question added. </p>';
 		}
 		else{

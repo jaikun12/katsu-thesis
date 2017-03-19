@@ -32,7 +32,7 @@
 		$check_if_exists = mysqli_query($connection, "SELECT * FROM katsu_questions_table WHERE question_content = '$question_content' AND is_active = 1");
 		$row_count = $check_if_exists->num_rows;
 
-		$check_sequence = mysqli_query($connection, "SELECT * FROM katsu_questions_table WHERE question_set = $question_set_id AND sequence_no = $sequence_no");
+		$check_sequence = mysqli_query($connection, "SELECT * FROM katsu_questions_table WHERE question_set = $question_set_id AND sequence_no = $sequence_no AND is_active = 1");
 		$count_sequence = $check_sequence->num_rows;
 
 		if($row_count==0){ // if username is not taken
