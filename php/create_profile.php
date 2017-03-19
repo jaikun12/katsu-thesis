@@ -50,7 +50,7 @@
 	if(!$child_fname || !$child_lname){
 		header("Location: ../create-profile.php?error=6");
 	}else{
-		$query = mysqli_query("SELECT * FROM katsu_users_table;");
+		$query = mysqli_query($connection, "SELECT * FROM katsu_users_table;");
 		while($r=mysqli_fetch_array($query)){
 			if($row_count==0||$r['ist_active']==0){
 

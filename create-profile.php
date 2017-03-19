@@ -22,14 +22,35 @@
 			<input type="text" name="child_fname" placeholder="Child's First Name">
 			<input type="text" name="child_mname" placeholder="Child's Middle Name">
 			<input type="text" name="child_lname" placeholder="Child's Last Name">
-			<input type="text" name="child_age" placeholder="Child's Age">
-			<label>Gender</label><br>
-			<label for="male" id="male_label" onClick="selectedRadio1()" style="font-size:0.7em; margin:20px; padding:10px; border-radius:30px;">Male
+			<select name="child_age" style="float:left;margin-left:5%;margin-top:20px; margin-bottom:20px;">
+				<option selected disabled>Child's Age &rsaquo;</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+				<option value="16">16</option>
+				<option value="17">17</option>
+			</select>
+			<br>
+			<!-- <input type="text" name="child_age" placeholder="Child's Age"> -->
+			<label style="clear:both;float:left;margin-left:5%;">Gender</label><br>
+			<label for="male" id="male_label" onClick="selectedRadio1()" style="float:left;font-size:0.7em; margin:20px; padding:10px; border-radius:30px;">Male
 			<input type="radio" name="child_gender" id="male" value="male" style="display:none;"></label>
-			<label for="female" id="female_label" onClick="selectedRadio2()" style="font-size:0.7em; margin:20px; padding:10px; border-radius:30px;">Female</label>
+			<label for="female" id="female_label" onClick="selectedRadio2()" style="float:left;font-size:0.7em; margin:20px; padding:10px; border-radius:30px;">Female</label>
 			<input type="radio" name="child_gender" id="female" value="female" style="display:none;">
-			<select class="form-control" id="province" name="child_prov">
-				<option disabled selected>Choose province</option>
+			<select id="province" name="child_prov" style="float:left;margin-left:5%;margin-top:20px;">
+				<option disabled selected>Choose province &rsaquo;</option>
 				<option value="abra">Abra</option>
 				<option value="agusan-del-norte">Agusan Del Norte</option>
 				<option value="agusan-del-sur">Agusan Del Sur</option>
