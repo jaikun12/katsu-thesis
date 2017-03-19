@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.2
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 06, 2017 at 12:51 PM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Host: localhost
+-- Generation Time: Mar 19, 2017 at 10:14 AM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 7.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -32,8 +32,8 @@ CREATE TABLE `katsu_answers_table` (
   `victim_id` int(15) NOT NULL,
   `user_id` int(15) NOT NULL,
   `answer_content` varchar(1000) NOT NULL,
-  `date_answered` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `date_answered` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ;
 
 --
 -- Dumping data for table `katsu_answers_table`
@@ -61,12 +61,7 @@ INSERT INTO `katsu_answers_table` (`answer_id`, `question_id`, `victim_id`, `use
 (19, 2, 5, 18, 'yes', '2017-03-06 02:36:41.970928'),
 (20, 3, 5, 18, 'yes', '2017-03-06 02:36:43.148452'),
 (21, 4, 5, 18, 'yes', '2017-03-06 02:36:44.275817'),
-(22, 5, 5, 18, 'yes', '2017-03-06 02:36:45.673261'),
-(23, 1, 5, 18, 'yes', '2017-03-06 11:48:32.022632'),
-(24, 2, 5, 18, 'yes', '2017-03-06 11:48:36.155119'),
-(25, 3, 5, 18, 'yes', '2017-03-06 11:48:38.070963'),
-(26, 4, 5, 18, 'yes', '2017-03-06 11:48:39.697947'),
-(27, 5, 5, 18, 'no', '2017-03-06 11:48:41.474996');
+(22, 5, 5, 18, 'yes', '2017-03-06 02:36:45.673261');
 
 -- --------------------------------------------------------
 
@@ -85,9 +80,8 @@ CREATE TABLE `katsu_childs_table` (
   `child_prov` varchar(45) NOT NULL,
   `child_city` varchar(45) NOT NULL,
   `child_pword` varchar(45) NOT NULL,
-  `time_created` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
-  `child_status` varchar(45) NOT NULL DEFAULT 'Pending'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `time_created` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ;
 
 --
 -- Dumping data for table `katsu_childs_table`
@@ -99,7 +93,15 @@ INSERT INTO `katsu_childs_table` (`child_id`, `user_id`, `child_fname`, `child_m
 (3, 18, 'John', 'Alvarez', 'Lim', 8, 'male', 'Cavite', 'Dasmarinas', '$!zhnR4SAWYhE', '2017-03-03 03:09:38.573788', 'Pending'),
 (4, 18, 'John Robert', 'Tiongson', 'Sevilla', 15, 'male', 'Nueva Ecija', 'Sullano', '$!zhnR4SAWYhE', '2017-03-03 03:13:08.688437', 'Pending'),
 (5, 18, 'Jhoebe', 'Kahit Ano', 'Lim', 8, 'female', 'Manila', 'Manila', '$!zhnR4SAWYhE', '2017-03-04 04:53:15.767916', 'Pending'),
-(6, 18, 'Patrick', 'Y', 'Sze', 7, 'male', 'Manila', 'Manila', '$!zhnR4SAWYhE', '2017-03-06 11:50:48.507209', 'Pending');
+(6, 18, 'Carlos', 'Remedios', 'Cruz', 12, 'male', 'cavite', 'Dasmarinas', '$!SsO8fzB21fg', '2017-03-19 04:11:58.322614', 'Pending'),
+(7, 18, 'Carlos', 'Remedios', 'Cruz', 12, 'male', 'cavite', 'Dasmarinas', '$!SsO8fzB21fg', '2017-03-19 04:11:58.325282', 'Pending'),
+(8, 18, 'Carlos', 'Remedios', 'Cruz', 12, 'male', 'cavite', 'Dasmarinas', '$!SsO8fzB21fg', '2017-03-19 04:11:58.326354', 'Pending'),
+(9, 18, 'Carlos', 'Remedios', 'Cruz', 12, 'male', 'cavite', 'Dasmarinas', '$!SsO8fzB21fg', '2017-03-19 04:11:58.327596', 'Pending'),
+(10, 18, 'Carlos', 'Remedios', 'Cruz', 12, 'male', 'cavite', 'Dasmarinas', '$!SsO8fzB21fg', '2017-03-19 04:11:58.331453', 'Pending'),
+(11, 18, 'Carlos', 'Remedios', 'Cruz', 12, 'male', 'cavite', 'Dasmarinas', '$!SsO8fzB21fg', '2017-03-19 04:11:58.332178', 'Pending'),
+(12, 18, 'Carlos', 'Remedios', 'Cruz', 12, 'male', 'cavite', 'Dasmarinas', '$!SsO8fzB21fg', '2017-03-19 04:11:58.332804', 'Pending'),
+(13, 18, 'Carlos', 'Remedios', 'Cruz', 12, 'male', 'cavite', 'Dasmarinas', '$!SsO8fzB21fg', '2017-03-19 04:11:58.333363', 'Pending'),
+(14, 18, 'Carlos', 'Remedios', 'Cruz', 12, 'male', 'cavite', 'Dasmarinas', '$!SsO8fzB21fg', '2017-03-19 04:11:58.333831', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -110,8 +112,8 @@ INSERT INTO `katsu_childs_table` (`child_id`, `user_id`, `child_fname`, `child_m
 CREATE TABLE `katsu_login_logs_table` (
   `login_log_id` int(15) NOT NULL,
   `user_id` int(15) NOT NULL,
-  `timestamp` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `timestamp` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ;
 
 -- --------------------------------------------------------
 
@@ -123,19 +125,34 @@ CREATE TABLE `katsu_questions_table` (
   `question_id` int(15) NOT NULL,
   `user_id` int(15) NOT NULL,
   `question_content` varchar(1000) NOT NULL,
-  `date_created` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `date_created` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ;
 
 --
 -- Dumping data for table `katsu_questions_table`
 --
 
-INSERT INTO `katsu_questions_table` (`question_id`, `user_id`, `question_content`, `date_created`) VALUES
-(1, 0, 'Gumagamit ka ba ng computer?', '2017-02-20 10:52:10.373414'),
-(2, 0, 'Meron ba kayong internet sa bahay?', '2017-02-20 10:52:10.375868'),
-(3, 0, 'May humawak na ba sa maselang bahagi ng katawan mo maliban sa magulang mo?', '2017-02-20 10:54:53.922208'),
-(4, 0, 'Alam mo ba itsura ng webcam?', '2017-02-20 10:52:10.380058'),
-(5, 1, 'May nagpahubad na ba sayo sa harap ng webcam', '2017-02-20 10:52:10.382261');
+INSERT INTO `katsu_questions_table` (`question_id`, `user_id`, `question_content`, `date_created`, `sequence_no`, `question_set`, `is_active`) VALUES
+(1, 1, 'Ikaw ba ay nag-aaral?', '0000-00-00 00:00:00.000000', 1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `katsu_question_sets_table`
+--
+
+CREATE TABLE `katsu_question_sets_table` (
+  `set_id` int(100) NOT NULL,
+  `set_name` varchar(400) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `katsu_question_sets_table`
+--
+
+INSERT INTO `katsu_question_sets_table` (`set_id`, `set_name`) VALUES
+(1, 'Basic Information about the child and computer/internet use'),
+(2, 'Computer and internet risks and dangers.');
 
 -- --------------------------------------------------------
 
@@ -154,53 +171,33 @@ CREATE TABLE `katsu_users_table` (
   `contact_num` varchar(15) NOT NULL,
   `email` varchar(45) NOT NULL,
   `is_active` int(2) NOT NULL,
-  `time_created` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
-  `created_by` varchar(45) NOT NULL DEFAULT 'super admin'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `time_created` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ;
 
 --
 -- Dumping data for table `katsu_users_table`
 --
 
 INSERT INTO `katsu_users_table` (`user_id`, `username`, `password`, `is_admin`, `firstname`, `middlename`, `lastname`, `contact_num`, `email`, `is_active`, `time_created`, `created_by`) VALUES
-(17, 'katsu_admin', '!@Fugcg161Fy6', 1, 'Bok Joo', 'NA', 'Kim', '123456789', 'sample@gmail.com', 1, '2017-03-03 02:38:54.930030', 'super admin'),
+(1, 'katsu_admin', '!@Fugcg161Fy6', 1, 'Bok Joo', 'NA', 'Kim', '123456789', 'sample@gmail.com', 1, '2017-03-07 14:58:58.333494', 'super admin'),
 (18, 'katsu_user', '!@J4Q/0zUJamw', 0, 'Shi Jin', 'NA', 'Yoo', '091234567', 'sample@gmail.com', 1, '2017-03-03 02:38:54.976249', 'super admin'),
 (19, 'katsu_inactive', '!@D5mroWvawd6', 1, 'Shi Jin', 'NA', 'Yoo', '092323231', 'sample@gmail.com', 0, '2017-03-03 02:38:54.993716', 'super admin'),
-(20, 'boazcstrike', '$!RwKbHxrwnPw', 1, 'Boaz Sze', 'Yutatco', 'Sze', '09171231234', 'sample@gmail.com', 1, '2017-03-03 05:15:33.832610', '');
+(20, 'boazcstrike', '$!RwKbHxrwnPw', 1, 'Boaz Sze', 'Yutatco', 'Sze', '09171231234', 'sample@gmail.com', 1, '2017-03-03 05:15:33.832610', ''),
+(21, 'test_admin', '!@JsIj3iaLGFc', 1, 'Lorraine', 'Cinco', 'Dee', '091231231', 'sample@gmail.com', 1, '2017-03-07 14:24:23.354363', 'super admin'),
+(22, 'test_user', '!@J4Q/0zUJamw', 0, 'Kyle', 'Joshua', 'Wong', '091231233', 'sample@gmail.com', 1, '2017-03-07 14:30:27.312726', 'super admin'),
+(23, '?@!#$!@#$', '!@JsIj3iaLGFc', 0, 'Firstname', 'Middlename', 'Lastname', '09123332111', 'sample@gmail.com', 0, '2017-03-07 15:11:15.933876', 'super admin'),
+(24, 'katsu_admin2', '!@Fugcg161Fy6', 1, 'Joshua', 'Fernandez', 'De Leon', '1231324987', 'sample@gmail.com', 1, '2017-03-07 15:35:24.179151', 'katsu_admin'),
+(25, 'jaikun12', '!@Lotu8J/qNWg', 1, 'John Joen', 'Alvarez', 'Lim', '09778093784', 'jaicelim@gmail.com', 1, '2017-03-09 05:19:12.824655', 'katsu_admin');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `katsu_answers_table`
+-- Indexes for table `katsu_question_sets_table`
 --
-ALTER TABLE `katsu_answers_table`
-  ADD PRIMARY KEY (`answer_id`);
-
---
--- Indexes for table `katsu_childs_table`
---
-ALTER TABLE `katsu_childs_table`
-  ADD PRIMARY KEY (`child_id`);
-
---
--- Indexes for table `katsu_login_logs_table`
---
-ALTER TABLE `katsu_login_logs_table`
-  ADD PRIMARY KEY (`login_log_id`);
-
---
--- Indexes for table `katsu_questions_table`
---
-ALTER TABLE `katsu_questions_table`
-  ADD PRIMARY KEY (`question_id`);
-
---
--- Indexes for table `katsu_users_table`
---
-ALTER TABLE `katsu_users_table`
-  ADD PRIMARY KEY (`user_id`);
+ALTER TABLE `katsu_question_sets_table`
+  ADD PRIMARY KEY (`set_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -210,12 +207,12 @@ ALTER TABLE `katsu_users_table`
 -- AUTO_INCREMENT for table `katsu_answers_table`
 --
 ALTER TABLE `katsu_answers_table`
-  MODIFY `answer_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `answer_id` int(15) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `katsu_childs_table`
 --
 ALTER TABLE `katsu_childs_table`
-  MODIFY `child_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `child_id` int(15) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `katsu_login_logs_table`
 --
@@ -225,12 +222,17 @@ ALTER TABLE `katsu_login_logs_table`
 -- AUTO_INCREMENT for table `katsu_questions_table`
 --
 ALTER TABLE `katsu_questions_table`
-  MODIFY `question_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `question_id` int(15) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `katsu_question_sets_table`
+--
+ALTER TABLE `katsu_question_sets_table`
+  MODIFY `set_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `katsu_users_table`
 --
 ALTER TABLE `katsu_users_table`
-  MODIFY `user_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `user_id` int(15) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
