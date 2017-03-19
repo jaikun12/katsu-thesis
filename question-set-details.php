@@ -4,6 +4,7 @@
 	include("partial_view/essentials-upper-admin.html");
 
 	$set_id = $_GET['id'];
+	$_SESSION['question_set_id'] = $set_id;
 
 	$get_question = mysqli_query($connection, "SELECT set_name FROM katsu_question_sets_table WHERE set_id = '$set_id';");
 	$result = mysqli_fetch_assoc($get_question);
@@ -14,6 +15,7 @@
 
 	<table class="table table-hover" style="width:80%;">
 		<h2>Questions for Question set: <?php echo $set_name;?></h2>
+		<?php include("php/status.php"); ?>
 		<thead>
 			<th>Question ID</th>
 			<th>Question Content</th>
@@ -44,7 +46,7 @@
 	</table> 
 
 	<button class="btn-primary" data-toggle="modal" data-target="#add-question-modal">Add New Question</button>
-	<button class="btn-primary" onclick="history.back()">Back</button>
+	<a href="admin-dashboard.php"><button class="btn-primary">Back</button></a>
 
 
 
@@ -54,16 +56,16 @@
 				<div class="modal-body">
 					<div class="container-fluid">
 
-						<form action="php/create_question.php" method="POST">
+						<form <?php echo 'action="php/create_question.php?id=' . $set_id . '"'; ?> method="POST">
 							<legend>Add a question to this set</legend>
 
 							<div class="form-group">
 							<label for="">Question</label>
-							<textarea name="question_content" type="text" class="form-control" id="" placeholder="Input your desired question"></textarea> 				
+							<textarea name="question_content" type="text" class="form-control" id="" placeholder="Input your desired question" required></textarea> 				
 							</div>
 							<div class="form-group">
 							<label>Sequnce Number:
-							<input type="text" name="sequence"></label>
+							<input type="text" name="sequence" required></label>
 							</div>
 							<br>
 							<button type="submit" class="btn btn-primary">Add Question</button>

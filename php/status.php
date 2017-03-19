@@ -23,7 +23,10 @@
 			echo '<p class="error-msg">Please enter important child credentials. (At least a first name and last name provided.)</p>';
 		}
 		elseif($error_code == 7){
-			echo '<p class="error-msg">A similar question exists or you entered a null value</p>';
+			echo '<p class="error-msg">A similar question exists. Worst case is an empty field.</p>';
+		}
+		elseif($error_code == 8){
+			echo '<p class="error-msg">You have entered an existing sequence, please enter another non-existing sequence number.</p>';
 		}
 		else{
 
