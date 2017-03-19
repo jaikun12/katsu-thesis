@@ -116,56 +116,62 @@
 	</div> -->
 
 </div>
-
+<br><br>
 
 <div class="container" id="questions-table">
 	<h3>Questions</h3>
 
-	<?php include("partial_view/questions_table.php"); ?>
+	
+	<table class="table table-hover" style="width:80%;">
+		<thead>
+			<tr>
+				<th>Question Set ID</th>
+				<th>Question Set Name</th>
+				<th>Actions</th>
+			</tr>
+		<thead>
+		<tbody>
+			<?php
+				$get_table = mysqli_query($connection, "SELECT * FROM katsu_question_sets_table");
+				while($result = mysqli_fetch_array($get_table)){
+					$set_id = $result['set_id'];
+					$set_name = $result['set_name'];
 
-	<button class="btn-primary" data-toggle="modal" data-target="#questions-modal">Add Question</button>
+					echo "
+							<tr>
+							<td>".$set_id."</td>
+							<td>".$set_name."</td>
+							<td><a href='question-set-details.php?id=".$set_id."' class='btn btn-primary'>Details</a>
+							<tr>
+						";
+				}
 
-	<div class="modal fade" id="questions-modal" tabindex="-1" role="dialog">
+
+			?>
+		</tbody>
+	</table>
+
+	<button class="btn-primary" data-toggle="modal" data-target="#create-question-set-modal">Create New Set</button>
+
+
+
+	<div class="modal fade" id="create-question-set-modal" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
-				
 				<div class="modal-body">
-					<!-- <div class="container" id="add-questions"> -->
-					<form action="php/create_question.php" method="POST" role="form">
-						<legend>Add a question</legend>
-						
-						<div class="form-group">
-							<label for="">Question</label>
-							<textarea name="question_content" type="text" class="form-control" id="" placeholder="Input your desired question"></textarea> 				
-						</div>
-						
-						<button type="submit" class="btn btn-primary">Add Question</button>
-					</form>
-					<!-- </div> -->
-				</div>
-				
-			</div>
-		</div>
-	</div>
+					<div class="container-fluid">
 
-	<button class="btn-primary" data-toggle="modal" data-target="#disablequestions-modal">Disable Question</button>
+						<form action="php/create_question_set.php" method="POST" role="form">
+							<legend>Create a new question set</legend>
+							<label>Set Name:
+							<input type="text" name="set_name" placeholder="Input question set name.">
+							</label>
+							<br>
+							<button type="submit" class="btn btn-primary">Create Question Set</button>
 
-	<div class="modal fade" id="disablequestions-modal" tabindex="-1" role="dialog">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				
-				<div class="modal-body">
+						</form>
 
-					<form action="php/disable_question.php" method="POST" role="form">
-						<legend>Disable a question</legend>
-
-						<?php include("partial_view/disabled_questions_option.php"); ?>
-
-						<br><br>
-						
-						<button type="submit" class="btn btn-primary">Disable Question</button>
-					</form>
-
+					</div>
 				</div>
 				
 			</div>

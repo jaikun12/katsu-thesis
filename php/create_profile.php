@@ -7,7 +7,7 @@
 	include("session_check.php");
 
 	//preparation
-	$check_child_table = $connection->prepare("SELECT * FROM katsu_childs_table WHERE child_fname = ? AND child_mname = ? AND child_lname = ?;");
+	$check_child_table = $connection->prepare("SELECT * FROM katsu_childs_table WHERE child_fname = ? AND child_mname = ? AND child_lname = ? AND status = 'Pending';");
 	$check_child_table->bind_param("sss", $child_fname,$child_mname,$child_lname);
 
 	$select_child = $connection->prepare("SELECT child_id FROM katsu_childs_table WHERE child_fname = ? AND child_mname = ? AND child_lname = ?;");
@@ -50,9 +50,8 @@
 	if(!$child_fname || !$child_lname){
 		header("Location: ../create-profile.php?error=6");
 	}else{
-		$query = mysqli_query($connection, "SELECT * FROM katsu_users_table;");
-		while($r=mysqli_fetch_array($query)){
-			if($row_count==0||$r['ist_active']==0){
+		$query = mysqli_query($connection, "SELECT * FROM katsu_childs_table;");
+			if($row_count==0){
 
 				$insert_query->execute();
 
@@ -77,7 +76,7 @@
 				
 			}
 		}
-	}
+	
 	
 
 	//close

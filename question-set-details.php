@@ -10,6 +10,7 @@
 	$set_name = $result['set_name'];
 
 ?>
+<div class="container">
 
 	<table class="table table-hover" style="width:80%;">
 		<h2>Questions for Question set: <?php echo $set_name;?></h2>
@@ -43,6 +44,7 @@
 	</table> 
 
 	<button class="btn-primary" data-toggle="modal" data-target="#add-question-modal">Add New Question</button>
+	<button class="btn-primary" onclick="history.back()">Back</button>
 
 
 
@@ -74,6 +76,8 @@
 			</div>
 		</div>
 	</div>
+
+</div>
 
 
 	<!-- jQuery -->
