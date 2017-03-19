@@ -22,6 +22,18 @@
 				<form action="php/katsu_start_session.php" method="POST">
 					<input type="text" name="profile_id" placeholder="Child Profile ID">
 					<input type="password" name="password" placeholder="Child Session Password">
+					<select name="question_set" style="width:70%;">
+						<option selected disabled>Select Question Set</option>
+						<?php
+							$query = mysqli_query($connection, "SELECT * FROM katsu_question_sets_table;");
+							while($result = mysqli_fetch_array($query)){
+								$question_set = $result['set_name'];
+								$set_id = $result['set_id'];
+
+								echo "<option value='".$set_id."'>".$question_set."</option>";
+							}
+							?>
+					</select>
 					<button type="submit" class="primary-btn">Start Session</button>
 					<a href="home.php" class="link">Cancel</a>
 				</form>

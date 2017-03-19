@@ -5,6 +5,7 @@ _r<?php
 	include("partial_view/essentials-lower.html");
 
 	$child_id = $_GET['prof_id'];
+	$set_id = $_GET['set_id'];
 
 	$_SESSION['child_id'] = $child_id;
 
@@ -34,7 +35,7 @@ _r<?php
 			<h2>Hello, <?php echo $child_fname;?></h2>
 			<h4>Ako si katsu! Tara mag usap tayo.</p>
 			<br><br><br><br>
-			<a class="primary-btn" href="katsu-chat.php?question=1">Tara!</a> 
+			<a class="primary-btn" href="katsu-chat.php?set_id=<?php echo $set_id;?>&question=1">Tara!</a> 
 			
 			
 			</center>

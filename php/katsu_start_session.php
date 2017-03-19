@@ -5,6 +5,7 @@
 
 	$prof_id = $_POST['profile_id'];
 	$prof_pw = $_POST['password'];
+	$set_id = $_POST['question_set'];
 
 	$crypt_pass = crypt($prof_pw, "$!@#$%ChilDPorN");
 
@@ -17,7 +18,7 @@
 	$result_count = $check_account->num_rows;
 
 	if($result_count != 0){
-		header("Location: ../katsu-intro.php?prof_id=".$prof_id);
+		header("Location: ../katsu-intro.php?prof_id=".$prof_id."&set_id=".$set_id);
 	}
 	else{
 		header("Location: ../katsu-start.php?error=2");

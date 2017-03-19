@@ -5,10 +5,11 @@
 	$child_id = $_SESSION['child_id'];
 	$answer = $_POST['answer'];
 	$questionNo = $_POST['question_no'];
+	$set_id = $_POST['set_id'];
 
 	$nextQuestion = $questionNo + 1;
 
-	$query = "SELECT * FROM katsu_questions_table";
+	$query = "SELECT * FROM katsu_questions_table WHERE question_set = '$set_id' AND is_active = 1";
 	$query2 = mysqli_query($connection, $query);
 
 	$insert_query = "INSERT INTO katsu_answers_table (question_id, victim_id, user_id, answer_content) VALUES($questionNo, $child_id, $userid, '$answer')";
@@ -19,7 +20,7 @@
 		$redirect = "Location: ../katsu-chat.php?question=end";
 	}
 	else{
-		$redirect = "Location: ../katsu-chat.php?question=".$nextQuestion;
+		$redirect = "Location: ../katsu-chat.php?question=".$nextQuestion."&set_id=".$set_id;
 	}
 
 	// $submit_answer = $connection->prepare("INSERT INTO answers_table (question_id, victim_id, answer_content) VALUES (?,?,?)");

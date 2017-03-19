@@ -28,16 +28,16 @@
 
 		}else{
 			if(!isset($question)){
-				$check_end = $check_end + 1;
-				$query = "SELECT * FROM katsu_questions_table WHERE question_id = $check_end;";
-				$check_if_end = mysqli_query($connection,$query);
-				$row_count = mysqli_num_rows($check_if_end);
-				if($row_count != 0){
-					header("Location: ../katsu-chat.php?question=$check_end");
-				}
-				else{
+				// $check_end = $check_end + 1;
+				// $query = "SELECT * FROM katsu_questions_table WHERE question_id = $check_end;";
+				// $check_if_end = mysqli_query($connection,$query);
+				// $row_count = mysqli_num_rows($check_if_end);
+				// if($row_count != 0){
+				// 	header("Location: ../katsu-chat.php?question=$check_end");
+				// }
+				// else{
 					header("Location: katsu-chat.php?question=end");
-				}
+				// }
 				
 			}
 			else{
@@ -49,6 +49,7 @@
 					<button type="submit" name="answer" value="yes">Oo</button>
 					<button type="submit" name="answer" value="no">Hindi</button>
 					<input type="text" name="question_no" value="' . $question_no . '" style="display:none;">
+					<input type="text" name="set_id" value="' . $set_id . '" style="display:none;">
 				</form>
 				</center>
 
