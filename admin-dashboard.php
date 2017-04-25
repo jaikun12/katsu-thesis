@@ -230,6 +230,7 @@
 			?>
 		</tbody>
 	</table>
+	<button type="submit" class="btn btn-primary">Disable Question Set</button>
 
 
 					</div>
@@ -248,7 +249,7 @@
 	<?php include("partial_view/childs_table.php"); ?>
 	</div>
 	
-
+	<br>
 	<button class="btn-primary" data-toggle="modal" data-target="#confirm-modal">Confirm a Victim</button>
 
 	<div class="modal fade" id="confirm-modal" tabindex="-1" role="dialog">
